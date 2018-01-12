@@ -1,0 +1,1 @@
+from .ProductsResource import *
