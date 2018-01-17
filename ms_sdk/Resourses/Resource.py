@@ -52,12 +52,15 @@ class Resource():
 
 
     def get(self, id):
+        if not id:
+            return print('Id is not specified')
+
         params = []
 
         if self.fields:
             params['fields'] = ','.join(self.fields)
 
-        response = self.handler.handle('GET', False, id, params)
+        response = self.handler.handle('GET', False, str(id), params)
         return self.make(response, False)
 
 

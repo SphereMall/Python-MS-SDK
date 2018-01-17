@@ -30,8 +30,8 @@ class Request:
         # Append additional data to url
         if uriAppend:
             url += '/' + str(uriAppend)
-        # print(uriAppend)
-        # print(url)
+        print(uriAppend)
+        print(url)
         # Add query params
         if queryParams:
             url += '?' + urllib.parse.unquote(urllib.parse.urlencode(queryParams))
