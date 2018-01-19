@@ -1,9 +1,8 @@
 import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-
 from tests.settings import setup_client
-from ms_sdk.Lib.Entity import Entity
+from ms_sdk.Entities.Attribute import Attribute
 
 
 class TestAttributesResource:
@@ -12,31 +11,31 @@ class TestAttributesResource:
         attrList = attributes.all()
 
         for item in attrList:
-            isinstance(type(item), Entity)
+            isinstance(type(item), Attribute)
 
     def testAttributesBelongEntityAttributeGroupAttribute(self):
         attributes = setup_client().attributes()
-        attrList = attributes.belong('product', 2, 1)
+        attrList = attributes.belong('product', 2, 0)
 
         for item in attrList:
-            isinstance(type(item), Entity)
+            isinstance(type(item), Attribute)
 
     def testAttributesBelongEntityAttributeGroup(self):
         attributes = setup_client().attributes()
         attrList = attributes.belong('product', 2)
 
         for item in attrList:
-            isinstance(type(item), Entity)
+            isinstance(type(item), Attribute)
 
     def testAttributesBelongEntity(self):
         attributes = setup_client().attributes()
         attrList = attributes.belong('product')
 
         for item in attrList:
-            isinstance(type(item), Entity)
-
+            isinstance(type(item), Attribute)
 
     def testAttributeHelpMethods(self):
-        products = setup_client().products().limit(1).full()
-        attributes = products[0].attributes
-        products(attributes)
+        products = setup_client().products().limit(3).full()
+        # print(products)
+        attributes = list(products)[0]
+        print(attributes)
