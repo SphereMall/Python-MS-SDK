@@ -2,40 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="748557da-b854-4659-990f-39b87ad797b6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/XE.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/XE.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Entities/Attribute.py" afterPath="$PROJECT_DIR$/ms_sdk/Entities/Attribute.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Entities/AttributeDisplayType.py" afterPath="$PROJECT_DIR$/ms_sdk/Entities/AttributeDisplayType.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Entities/AttributeGroup.py" afterPath="$PROJECT_DIR$/ms_sdk/Entities/AttributeGroup.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Entities/AttributeGroupsEntities.py" afterPath="$PROJECT_DIR$/ms_sdk/Entities/AttributeGroupsEntities.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Entities/AttributeValue.py" afterPath="$PROJECT_DIR$/ms_sdk/Entities/AttributeValue.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Entities/Entity.py" afterPath="$PROJECT_DIR$/ms_sdk/Entities/Entity.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Entities/Product.py" afterPath="$PROJECT_DIR$/ms_sdk/Entities/Product.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Filters/Filter.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Filters/Filter.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Filters/FilterConditions.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Filters/FilterConditions.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Filters/FilterOperators.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Filters/FilterOperators.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Http/Request.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Http/Request.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Http/Response.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Http/Response.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Makers/ObjectMaker.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Makers/ObjectMaker.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/AttributeDisplayTypesMapper.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/AttributeDisplayTypesMapper.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/AttributeGroupsEntitiesMapper.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/AttributeGroupsEntitiesMapper.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/AttributeGroupsMapper.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/AttributeGroupsMapper.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/AttributeValuesMapper.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/AttributeValuesMapper.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/AttributesMapper.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/AttributesMapper.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/Mapper.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/Mapper.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/ProductAttributeValuesMapper.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/ProductAttributeValuesMapper.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/ProductsMapper.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/ProductsMapper.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/__init__.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/Mappers/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Lib/ServiceInjector.py" afterPath="$PROJECT_DIR$/ms_sdk/Lib/ServiceInjector.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Resourses/Mixins/FullResource.py" afterPath="$PROJECT_DIR$/ms_sdk/Resourses/Mixins/FullResource.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Resourses/Mixins/InteractsWithProperties.py" afterPath="$PROJECT_DIR$/ms_sdk/Resourses/Mixins/InteractsWithProperties.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Resourses/Products/AttributeDisplayTypesResource.py" afterPath="$PROJECT_DIR$/ms_sdk/Resourses/Products/AttributeDisplayTypesResource.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Resourses/Products/AttributeGroupsEntitiesResource.py" afterPath="$PROJECT_DIR$/ms_sdk/Resourses/Products/AttributeGroupsEntitiesResource.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Resourses/Products/AttributeGroupsResource.py" afterPath="$PROJECT_DIR$/ms_sdk/Resourses/Products/AttributeGroupsResource.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Resourses/Products/AttributesResource.py" afterPath="$PROJECT_DIR$/ms_sdk/Resourses/Products/AttributesResource.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Resourses/Products/ProductsResource.py" afterPath="$PROJECT_DIR$/ms_sdk/Resourses/Products/ProductsResource.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Resourses/Products/__init__.py" afterPath="$PROJECT_DIR$/ms_sdk/Resourses/Products/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/Resourses/Resource.py" afterPath="$PROJECT_DIR$/ms_sdk/Resourses/Resource.py" />
-      <change beforePath="$PROJECT_DIR$/ms_sdk/сlient.py" afterPath="$PROJECT_DIR$/ms_sdk/сlient.py" />
       <change beforePath="$PROJECT_DIR$/tests/resourses/products/attributes_resource_test.py" afterPath="$PROJECT_DIR$/tests/resourses/products/attributes_resource_test.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -105,8 +74,18 @@
       <file leaf-file-name="attributes_resource_test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/resourses/products/attributes_resource_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
+            <state relative-caret-position="187">
               <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -127,16 +106,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Attribute.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ms_sdk/Entities/Attribute.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -197,7 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ms_sdk/Lib/Mappers/productsMapper.py" />
         <option value="$PROJECT_DIR$/ms_sdk/Lib/Entity.py" />
         <option value="$PROJECT_DIR$/ms_sdk/Lib/Filters/FilterConditions.py" />
         <option value="$PROJECT_DIR$/ms_sdk/Lib/Filters/FilterOperators.py" />
@@ -247,6 +215,7 @@
         <option value="$PROJECT_DIR$/ms_sdk/Lib/Mappers/ProductsMapper.py" />
         <option value="$PROJECT_DIR$/ms_sdk/Lib/Makers/ObjectMaker.py" />
         <option value="$PROJECT_DIR$/ms_sdk/Lib/Mappers/AttributesMapper.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tests/resourses/products/attributes_resource_test.py" />
       </list>
     </option>
@@ -447,7 +416,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.49683878" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.50316125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21841542" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1369863" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41327623" sideWeight="0.49789253" order="9" side_tool="false" content_ui="tabs" />
@@ -589,13 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -863,9 +825,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/resourses/products/attributes_resource_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
+        <state relative-caret-position="187">
           <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
           <folding />
         </state>

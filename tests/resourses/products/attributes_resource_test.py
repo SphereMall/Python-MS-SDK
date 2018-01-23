@@ -10,7 +10,7 @@ class TestAttributesResource:
         attributes = setup_client().attributes()
         attrList = attributes.all()
 
-        for item in attrList:+
+        for item in attrList:
             isinstance(type(item), Attribute)
 
     def testAttributesBelongEntityAttributeGroupAttribute(self):
