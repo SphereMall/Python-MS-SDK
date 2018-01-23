@@ -22,6 +22,7 @@ class Request:
 
         # Generate request URL
         url = self.client.getGatewayUrl() + '/' + self.client.getVersion() + '/' + self.resource.getURI()
+
         
         # Base url should end without slash
         url = url.replace('?', '')
@@ -30,8 +31,7 @@ class Request:
         # Append additional data to url
         if uriAppend:
             url += '/' + str(uriAppend)
-        print(uriAppend)
-        print(url)
+
         # Add query params
         if queryParams:
             url += '?' + urllib.parse.unquote(urllib.parse.urlencode(queryParams))
@@ -46,15 +46,16 @@ class Request:
                 options['body'] = urllib.parse.urlencode(queryParams)
 
 
-
         self.client.setCallStatistic({'method':method, 'url':url, 'options':options})
 
         if _async:
             return {'method':method, 'url':url, 'options':options}
-        
+
+        headers = {'user-agent': 'PythonAPI'}
+
         if method.lower() == 'get':
-            # print(requests.get(url, options).text['data'])
-            return Response(requests.get(url, options))
+            # print(requests.get(url, options).text)
+            return Response(requests.get(url, options, headers=headers))
 
     
     # def setAuthorization():

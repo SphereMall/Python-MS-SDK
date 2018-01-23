@@ -1,0 +1,7 @@
+{
+  "tests/ClientTest.py::TestClient::()::testGetFilter": true,
+  "tests/ClientTest.py::TestClient::()::testMultipleFilter": true,
+  "tests/ClientTest.py::testClientCallService": true,
+  "tests/ClientTest.py::testClientObjectCreatedWithConfiguration": true,
+  "tests/ClientTest.py::testSetVersion": true
+}

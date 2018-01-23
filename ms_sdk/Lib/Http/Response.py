@@ -9,6 +9,7 @@ class Response:
         self.headers = response.headers
 
         contents = response.json()
+        # print(contents['success'])
 
         try:
             self.data = contents['data']

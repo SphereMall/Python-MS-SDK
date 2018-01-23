@@ -10,4 +10,14 @@ class FullResourceMixin:
         pass
 
     def full(self, param=None):
-        pass
+        uriAppend = 'full'
+        params = self.getQueryParams()
+
+        if param:
+            if isinstance(param, int):
+                uriAppend = uriAppend + '/' + param
+            else:
+                uriAppend = 'url/' + param
+
+        response = self.handler.handle('GET', False, uriAppend, params)
+        return self.make(response)

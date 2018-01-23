@@ -10,7 +10,7 @@ class TestAttributesResource:
         attributes = setup_client().attributes()
         attrList = attributes.all()
 
-        for item in attrList:
+        for item in attrList:+
             isinstance(type(item), Attribute)
 
     def testAttributesBelongEntityAttributeGroupAttribute(self):
@@ -35,7 +35,8 @@ class TestAttributesResource:
             isinstance(type(item), Attribute)
 
     def testAttributeHelpMethods(self):
-        products = setup_client().products().limit(3).full()
-        # print(products)
-        attributes = list(products)[0]
-        print(attributes)
+        products = setup_client().products().limit(1).full()
+        attributes = products.attributes
+
+        for item in attributes:
+            isinstance(type(item), Attribute)
