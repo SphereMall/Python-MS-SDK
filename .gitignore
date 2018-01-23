@@ -1,6 +1,7 @@
 /myenv/
 *.pyc
 settings.py
-.vscode/
-.cache/
-.ide/
+/.vscode/
+/.cache/
+/.idea/
+settings.py
