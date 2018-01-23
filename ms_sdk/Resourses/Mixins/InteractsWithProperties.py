@@ -22,5 +22,8 @@ class InteractsWithPropertiesMixin:
         for optionKey, optionValue in data.items():
             if hasattr(self, optionKey):
                 setattr(self, optionKey, optionValue)
+            # For reserved vars '_varname'
+            elif hasattr(self, '_' + optionKey):
+                setattr(self, '_' + optionKey, optionValue)
             else:
                 self.properties.update({optionKey: optionValue})

@@ -22,5 +22,5 @@ class Product(Entity, InteractsWithPropertiesMixin):
     brand = None
     functionalName = None
 
-    media = None
+    media = []
     mainMedia = None

@@ -14,16 +14,15 @@ class Resource():
     _filter = ''
     _limit = 10
     sort = []
-    ids = []
+    _ids = []
     _in = []
     meta = False
-    
+
+
     def __init__(self, client, version=''):
         self.client = client
         self.version = version or client.getVersion()
-
         self.handler = Request(self.client, self)
-
         self.maker = ObjectMaker()
 
     def limit(self, _limit = 10, offset = 0):
@@ -39,11 +38,11 @@ class Resource():
         return self.offset
 
     def ids(self, ids):
-        self.ids = ids
+        self._ids = ids
         return self
 
     def getIds(self):
-        return self.ids
+        return self._ids
 
     def fields(self, fields):
         self._fields = fields
@@ -104,8 +103,8 @@ class Resource():
             'limit'  : self._limit
         }
 
-        # if self.ids:
-            # params['ids'] = ','.join(self.ids)
+        if self._ids:
+            params['ids'] = ','.join(self._ids)
         if self._fields:
             params['fields'] = ','.join(self._fields)
         if self.sort:

@@ -68,7 +68,7 @@ class ObjectMaker(Maker):
             item.update(included)
         except:
             item.append(relations)
-        # print(item)
+
         mapper = mapperClass()
         return mapper.createObject(item)
 
