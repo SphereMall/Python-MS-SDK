@@ -16,13 +16,16 @@ class Filter(FilterOperators, FilterConditions):
     }
 
     filters = {}
-    def __init__(self, filters = []):
+
+    def __init__(self, filters = {}):
         if filters:
             self.setFilters(filters)
-        return self
+
+
 
     def getFilters(self, filters):
         return self.filters
+
 
     def setFilters(self, filters):
         print(filters)
