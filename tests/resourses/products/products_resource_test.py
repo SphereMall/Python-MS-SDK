@@ -47,3 +47,12 @@ class TestProductsResource:
         assert 'limoen-komkommer-fruitwater' in products.urlCode
         assert type(products) != list
 
+
+    def testAttributeHelpMethods(self):
+        product = setup_client().products().limit(1).full()
+
+        attribute = product.getAttributeByCode('test-html')
+        assert 'test-html' == attribute.code
+
+        attributeValue = product.getFirstValueByAttributeCode('test-html')
+        assert 'fghfghfgh' == attributeValue

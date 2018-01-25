@@ -1,7 +1,7 @@
 from .Entity import Entity
-from ms_sdk.Resourses.Mixins.InteractsWithProperties import InteractsWithPropertiesMixin
+from ms_sdk.Resourses.Mixins.InteractsWithAttributes import InteractsWithAttributesMixin
 
-class Product(Entity, InteractsWithPropertiesMixin):
+class Product(Entity, InteractsWithAttributesMixin):
 
     id = None
     urlCode = None
@@ -18,7 +18,7 @@ class Product(Entity, InteractsWithPropertiesMixin):
     importedId = None
     variantsCompound = None
 
-    attributes = None
+    attributes = []
     brand = None
     functionalName = None
 
