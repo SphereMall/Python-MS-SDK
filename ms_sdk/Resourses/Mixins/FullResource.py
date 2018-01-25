@@ -14,10 +14,10 @@ class FullResourceMixin:
         params = self.getQueryParams()
 
         if param:
-            if isinstance(param, int):
-                uriAppend = uriAppend + '/' + param
+            if type(param) == type(1):
+                uriAppend = uriAppend + '/' + str(param)
             else:
-                uriAppend = 'url/' + param
+                uriAppend = 'url/' + str(param)
 
         response = self.handler.handle('GET', False, uriAppend, params)
         return self.make(response)

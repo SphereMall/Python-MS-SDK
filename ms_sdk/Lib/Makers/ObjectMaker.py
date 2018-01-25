@@ -1,5 +1,9 @@
 import sys
 import os
+
+from ms_sdk.Lib.Collection import Collection
+from ms_sdk.Lib.Http.Meta import Meta
+
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from .Maker import Maker
@@ -13,13 +17,13 @@ class ObjectMaker(Maker):
 
     def makeArray(self, response: Response):
         if not response.getSuccess():
-            # TODO: new Collection
-            return []
+            return Collection([], Meta())
+
         result = self.getResultFromResponse(response)
 
         if self.asCollection:
-            # TODO: new Collection
-            pass
+            collection = Collection(result, response.getMeta())
+            return collection
 
         return result
 

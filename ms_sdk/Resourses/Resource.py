@@ -38,7 +38,8 @@ class Resource():
         return self.offset
 
     def ids(self, ids):
-        self._ids = ids
+        self._ids = []
+        self._ids.append(str(ids))
         return self
 
     def getIds(self):
@@ -59,6 +60,9 @@ class Resource():
         self._filter = _filter
         return self._filter
 
+    def withMeta(self):
+        self.meta = True
+        return self
 
     def get(self, id):
         if not id:

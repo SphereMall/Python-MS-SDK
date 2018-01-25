@@ -35,8 +35,8 @@ class TestAttributesResource:
             isinstance(type(item), Attribute)
 
     def testAttributeHelpMethods(self):
-        products = setup_client().products().limit(1).full()
-        attributes = products.attributes
+        products = setup_client().products().limit(3).full()
+        attributes = products[0].attributes
 
         for item in attributes:
             isinstance(type(item), Attribute)

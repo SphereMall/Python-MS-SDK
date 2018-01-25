@@ -9,7 +9,10 @@ class Collection:
     def __init__(self, objects = None, meta = None):
         if objects:
             self.objects = objects
-            self.total = len(objects)
+            try:
+                self.total = len(objects)
+            except:
+                self.total = 1
 
         self.meta = meta
 

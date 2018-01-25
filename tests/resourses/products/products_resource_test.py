@@ -18,8 +18,32 @@ class TestProductsResource:
         productArray = products.ids(ids).all()
         productList = Collection(productArray)
 
-        # assert 1 == productList.count()
-        # assert ids == products.getIds()
+        assert 1 == productList.count()
+        assert ids in products.getIds()
 
-        # for product in productList:
-        #     isinstance(type(product), Product)
+        if 1 == productList.count():
+            isinstance(type(productList), Product)
+        else:
+            raise print('Count Error')
+
+
+    def testServiceGetListWithMeta(self):
+        products = setup_client().products()
+        productCollection = products.withMeta().all()
+        isinstance(type(productCollection), Collection)
+
+
+    def testProductFull(self):
+        products = setup_client().products().limit(2).full()
+        assert 2 == len(products)
+
+        products = setup_client().products().ids('6351').limit(1).full()
+        assert '6351' == products.id
+
+        products = setup_client().products().full(6351)
+        assert '6351' == products.id
+
+        products = setup_client().products().full('limoen-komkommer-fruitwater')
+        assert 'limoen-komkommer-fruitwater' in products.urlCode
+        assert type(products) != list
+
