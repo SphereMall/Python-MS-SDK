@@ -1,6 +1,7 @@
 from .Entity import Entity
 from ms_sdk.Resourses.Mixins.InteractsWithAttributes import InteractsWithAttributesMixin
 
+
 class Product(Entity, InteractsWithAttributesMixin):
 
     id = None

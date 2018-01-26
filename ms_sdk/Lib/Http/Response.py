@@ -2,6 +2,7 @@ import json
 from .Meta import Meta
 import requests
 
+
 class Response:
 
     def __init__(self, response):
@@ -24,34 +25,26 @@ class Response:
             self.success = False
             self.errors = ex
 
-    
     def getSuccess(self):
         return self.success
-
 
     def getData(self):
         return self.data
 
-
     def getErrors(self):
         return self.errors
-
 
     def getErrorMessage(self):
         return json.load(self.errors)
 
-
     def getVersion(self):
         return self.version
-
 
     def getIncluded(self):
         return self.included
 
-
     def getStatusCode(self):
         return self.statusCode
 
-    
     def getMeta(self):
         return self.meta

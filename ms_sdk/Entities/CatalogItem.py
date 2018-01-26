@@ -1,5 +1,6 @@
 from .Entity import Entity
 
+
 class CatalogItem(Entity):
 
     id = None

@@ -1,5 +1,6 @@
 from .Entity import Entity
 
+
 class Company(Entity):
 
     id = None

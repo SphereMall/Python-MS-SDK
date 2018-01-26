@@ -7,6 +7,6 @@ from ms_sdk.Resourses.Mixins.FullResource import FullResourceMixin
 
 
 class ProductsResource(Resource, FullResourceMixin):
-    
+
     def getURI(self):
         return 'products'

@@ -5,6 +5,7 @@ from .BrandsMapper import BrandsMapper
 from .FunctionalNamesMapper import FunctionalNamesMapper
 from ms_sdk.Entities.Product import Product
 
+
 class ProductsMapper(Mapper):
 
     def doCreateObject(self, array):
@@ -13,8 +14,9 @@ class ProductsMapper(Mapper):
         try:
             if array.get('productAttributeValues'):
                 mapper = ProductAttributeValuesMapper()
-                product.attributes = mapper.createObject(array.get('productAttributeValues'))
-        except:
+                product.attributes = mapper.createObject(
+                    array.get('productAttributeValues'))
+        except BaseException:
             pass
 
         try:
@@ -26,21 +28,23 @@ class ProductsMapper(Mapper):
 
                 if product.media[0]:
                     product.mainMedia = product.media[0]
-        except:
+        except BaseException:
             pass
 
         try:
             if list(array.get('brands'))[0]:
                 mapper = BrandsMapper()
-                product.brand = mapper.createObject(list(array.get('brands'))[0])
-        except:
+                product.brand = mapper.createObject(
+                    list(array.get('brands'))[0])
+        except BaseException:
             pass
 
         try:
             if list(array.get('functionalNames'))[0]:
                 mapper = FunctionalNamesMapper()
-                product.brand = mapper.createObject(list(array.get('functionalNames'))[0])
-        except:
+                product.brand = mapper.createObject(
+                    list(array.get('functionalNames'))[0])
+        except BaseException:
             pass
 
         return product

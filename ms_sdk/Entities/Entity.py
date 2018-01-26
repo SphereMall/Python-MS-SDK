@@ -2,6 +2,7 @@ import inspect
 
 from ms_sdk.Resourses.Mixins.InteractsWithProperties import InteractsWithPropertiesMixin
 
+
 class Entity(InteractsWithPropertiesMixin):
 
     def __init__(self, array):
@@ -10,17 +11,15 @@ class Entity(InteractsWithPropertiesMixin):
 
         return self.setPropertyList(array)
 
-
     def asArray(self):
         properties = {}
 
         for itemKey, itemValue in self:
             if itemKey == 'properties':
                 continue
-            properties.update( { itemKey : itemValue })
+            properties.update({itemKey: itemValue})
 
         return properties.update(self.properties)
-
 
     # def getType(self):
     #     stack = inspect.stack()

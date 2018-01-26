@@ -5,6 +5,7 @@ from tests.settings import setup_client
 from ms_sdk.Entities.EntityAttribute import EntityAttribute
 from ms_sdk.Resourses.Products.EntityAttributesResource import EntityAttributesResource
 
+
 class TestEntityAttributesResource:
 
     def testServiceGetList(self):

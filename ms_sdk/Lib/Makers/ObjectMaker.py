@@ -52,15 +52,18 @@ class ObjectMaker(Maker):
 
         for include in included:
             try:
-                result[include['type']].update({include['id']: include['attributes']})
-            except:
-                result.update({include['type'] : {include['id']: include['attributes']}})
+                result[include['type']].update(
+                    {include['id']: include['attributes']})
+            except BaseException:
+                result.update(
+                    {include['type']: {include['id']: include['attributes']}})
 
         return result
 
     def getMapperClass(self, type):
         try:
-            return eval(type[0].upper() + type[1:] + 'Mapper.' + type[0].upper() + type[1:] + 'Mapper')
+            return eval(type[0].upper() + type[1:] + 'Mapper.' +
+                        type[0].upper() + type[1:] + 'Mapper')
         except Exception as err:
             return None
 
@@ -70,20 +73,20 @@ class ObjectMaker(Maker):
 
         try:
             item.update(included)
-        except:
+        except BaseException:
             item.append(relations)
 
         mapper = mapperClass()
         return mapper.createObject(item)
 
-
     def getAttributes(self, element):
-        if element['attributes'] and type(element['attributes']) == dict:
+        if element['attributes'] and isinstance(element['attributes'], dict):
             return element['attributes']
         return {}
 
     def getRelationships(self, element, included):
-        if not element['relationships'] and not type(element['relationships']) == dict:
+        if not element['relationships'] and not isinstance(
+                element['relationships'], dict):
             return {}
         result = {}
 
@@ -91,6 +94,5 @@ class ObjectMaker(Maker):
             for relationData in relationValue['data']:
                 if not relationData['id'] in included[relationData['type']]:
                     continue
-                result.update({ relationKey  : included[relationData['type']] })
+                result.update({relationKey: included[relationData['type']]})
         return result
-

@@ -11,7 +11,7 @@ class AttributesResource(Resource):
     def getURI(self):
         return 'attributes'
 
-    def belong(self, entityClass, attributeGroupId = None, attributeId = None):
+    def belong(self, entityClass, attributeGroupId=None, attributeId=None):
         # TODO: Remake entityClass
         uriAppend = '/belong/' + entityClass.lower() + 's'
         params = self.getQueryParams()

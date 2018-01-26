@@ -20,7 +20,6 @@ class TestGridFilter:
         assert 'functionalNames' == gfe.getName()
         assert [6] == gfe.getValues()
 
-
     def testGridFilterElements(self):
         gfe = AttributeFilter([128, 1, 2])
 
@@ -32,7 +31,6 @@ class TestGridFilter:
         assert 'attributes' == gfe.getName()
         assert [1, 3, 5] == gfe.getValues()
         assert [3, 1, 5] != gfe.getValues()
-
 
     def testGridFilter(self):
         attr = AttributeFilter([1, 2, 3])
@@ -69,12 +67,11 @@ class TestGridFilter:
 
         assert 'params=[{"entity":["product"]}]' == fl
 
-        fn = FunctionalNameFilter([5]);
+        fn = FunctionalNameFilter([5])
         gfilter = GridFilter()
         fl = gfilter.elements([attrs, ent]).elements([fn]).toString()
 
         assert 'params=[{"attributes":[1022],"entity":["product"]},{"functionalNames":[5]}]' == fl
-
 
     def testGridFilterParams(self):
         attr1 = AttributeFilter([1, 2, 3])
@@ -97,7 +94,6 @@ class TestGridFilter:
         f = gfilter.elements([attr1]).elements([fn, attr2]).toString()
 
         assert 'params=[{"attributes":[1,5]},{"functionalNames":[1,2],"attributes":[3,2,4]}]' == f
-
 
     def testGridFilterWithPrice(self):
         attr = AttributeFilter([1022])
@@ -126,7 +122,6 @@ class TestGridFilter:
 
         assert 'params=[{"attributes":[1022],"functionalNames":[5],"brands":[1],"priceRange":[10000,50000]}]' == f
 
-
     def testGridFilterWithFactors(self):
         attr = AttributeFilter([1022])
 
@@ -148,7 +143,6 @@ class TestGridFilter:
         f = gfilter.elements([attr]).elements([fn, factor]).toString()
 
         assert 'params=[{"attributes":[1022]},{"functionalNames":[5],"factors":[1]}]' == f
-
 
     def testGridFilterWithAttributeAndFunctionalName(self):
         attr = AttributeFilter([1022])
@@ -172,7 +166,6 @@ class TestGridFilter:
 
         assert 'params=[{"entity":["product"],"attributes":[1022]}]' == f
 
-
     def testGridReset(self):
         attr = AttributeFilter([1022])
 
@@ -187,13 +180,15 @@ class TestGridFilter:
         gfilter = GridFilter()
 
         gfilter.elements([fn, attr])
-        assert {0: {'functionalNames' : [5], 'attributes' : [1022]}} == gfilter.getElements()
+        assert {0: {'functionalNames': [5], 'attributes': [
+            1022]}} == gfilter.getElements()
 
         gfilter.reset()
         assert not gfilter.getElements()
 
         gfilter.elements([fn, attr])
-        assert {0: {'functionalNames': [5], 'attributes': [1022]}} == gfilter.getElements()
+        assert {0: {'functionalNames': [5], 'attributes': [
+            1022]}} == gfilter.getElements()
 
         gfilter.reset()
         assert not gfilter.getElements()

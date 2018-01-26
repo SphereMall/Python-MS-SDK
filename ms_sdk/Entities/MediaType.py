@@ -1,5 +1,6 @@
 from .Entity import Entity
 
+
 class MediaType(Entity):
 
     id = None
@@ -7,4 +8,3 @@ class MediaType(Entity):
     description = None
     _class = None
     orderNumber = None
-

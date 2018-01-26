@@ -1,5 +1,6 @@
 from .Entity import Entity
 
+
 class Brand(Entity):
 
     id = None
@@ -14,4 +15,3 @@ class Brand(Entity):
     visible = None
     orderNumber = None
     lastUpdate = None
-

@@ -6,6 +6,7 @@ API_CLIENT_ID = 'demo_pass'
 API_SECRET_KEY = 'api_demo_user'
 API_VERSION = 'v1'
 
+
 def setup_client():
     return Client({
         'gatewayUrl': API_GATEWAY_URL,

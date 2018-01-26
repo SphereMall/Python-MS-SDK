@@ -53,4 +53,3 @@ class ServiceInjectorMixin:
 
     def mediaTypes(self):
         return MediaTypesResource(self)
-

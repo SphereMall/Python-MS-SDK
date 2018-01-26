@@ -1,5 +1,6 @@
 from .Entity import Entity
 
+
 class Option(Entity):
 
     id = None
@@ -7,4 +8,3 @@ class Option(Entity):
     visible = None
     description = None
     orderNumber = None
-

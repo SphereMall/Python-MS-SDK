@@ -68,16 +68,16 @@ class TestBaseResourse:
         products1 = setup_client().products()
 
         product = products1.fields(['id', 'title']).get(6329)
-        assert product.id != None
-        assert product.title != None
-        assert product.price == None
+        assert product.id is not None
+        assert product.title is not None
+        assert product.price is None
 
         assert ['id', 'title'] == products1.getFields()
 
         product2 = products1.fields(['id', 'price']).get(6329)
-        assert product2.id != None
-        assert product2.title == None
-        assert product2.price != None
+        assert product2.id is not None
+        assert product2.title is None
+        assert product2.price is not None
 
         assert ['id', 'price'] == products1.getFields()
 

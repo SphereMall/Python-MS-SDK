@@ -2,6 +2,7 @@ from .Entity import Entity
 
 
 class Address(Entity):
+
     id = None
     userId = None
     name = None

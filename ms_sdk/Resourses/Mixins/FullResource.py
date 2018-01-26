@@ -14,7 +14,7 @@ class FullResourceMixin:
         params = self.getQueryParams()
 
         if param:
-            if type(param) == type(1):
+            if isinstance(param, type(1)):
                 uriAppend = uriAppend + '/' + str(param)
             else:
                 uriAppend = 'url/' + str(param)

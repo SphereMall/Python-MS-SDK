@@ -1,5 +1,6 @@
 from .Entity import Entity
 
+
 class SMEntity(Entity):
 
     id = None

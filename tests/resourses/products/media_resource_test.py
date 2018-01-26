@@ -10,6 +10,5 @@ class TestMediaResource:
     def testServiceGetList(self):
         media = setup_client().media()
 
-
         for item in media.all():
             isinstance(type(item), Media)

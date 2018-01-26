@@ -15,7 +15,7 @@ class InteractsWithPropertiesMixin:
 
     def setPropertiesField(self, data):
         for optionKey, optionValue in data.items():
-            self.properties.update({ optionKey : optionValue })
+            self.properties.update({optionKey: optionValue})
 
     def setPropertyList(self, data):
 
