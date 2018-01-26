@@ -1,7 +1,7 @@
 from .Entity import Entity
 
-class Attribute(Entity):
 
+class Attribute(Entity):
     id = None
     code = None
     title = None

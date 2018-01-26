@@ -54,7 +54,6 @@ class Request:
         headers = {'user-agent': 'PythonAPI'}
 
         if method.lower() == 'get':
-            # print(requests.get(url, options).text)
             return Response(requests.get(url, options, headers=headers))
 
     

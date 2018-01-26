@@ -1,6 +1,7 @@
 import json
 import sys
 import os
+
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from ms_sdk.Lib.Http.Request import Request
 from ms_sdk.Lib.Http.Response import Response
@@ -8,16 +9,16 @@ from ms_sdk.Lib.Makers.ObjectMaker import ObjectMaker
 from ms_sdk.Lib.Makers.Maker import Maker
 from ms_sdk.Lib.Filters.Filter import Filter
 
-class Resource():
+
+class Resource:
     _fields = []
     offset = 0
     _filter = ''
     _limit = 10
     sort = []
-    _ids = []
+    _ids = {}
     _in = []
     meta = False
-
 
     def __init__(self, client, version=''):
         self.client = client
@@ -25,21 +26,24 @@ class Resource():
         self.handler = Request(self.client, self)
         self.maker = ObjectMaker()
 
-    def limit(self, _limit = 10, offset = 0):
+    def limit(self, _limit=10, offset=0):
         self._limit = _limit
         self.offset = offset
 
         return self
 
     def getLimit(self):
-        return self.limit
+        return self._limit
 
     def getOffset(self):
         return self.offset
 
     def ids(self, ids):
         self._ids = []
-        self._ids.append(str(ids))
+        if type(ids) == list:
+            self._ids = ids
+        else:
+            self._ids.append(str(ids))
         return self
 
     def getIds(self):
@@ -54,7 +58,7 @@ class Resource():
 
     def filter(self, _filter):
         # if _filter == list:
-            # print('asddasasddas')
+        # print('asddasasddas')
         _filter = Filter(_filter)
 
         self._filter = _filter
@@ -67,10 +71,11 @@ class Resource():
     def get(self, id):
         if not id:
             return print('Id is not specified')
-        params = []
+        params = {}
 
         if self._fields:
             params['fields'] = ','.join(self._fields)
+
         response = self.handler.handle('GET', False, str(id), params)
         return self.make(response, False)
 
@@ -85,7 +90,7 @@ class Resource():
         response = self.handler.handle('GET', False, 'by', params)
         return self.make(response, False)
 
-    def make(self, response, makeArray = True, maker: Maker = None):
+    def make(self, response, makeArray=True, maker: Maker = None):
         if not maker:
             maker = self.maker
 
@@ -100,11 +105,10 @@ class Resource():
 
         return {'response': response, 'maker': maker, 'makeArray': makeArray}
 
-
     def getQueryParams(self):
         params = {
-            'offset' : self.offset,
-            'limit'  : self._limit
+            'offset': self.offset,
+            'limit': self._limit
         }
 
         if self._ids:
@@ -120,5 +124,3 @@ class Resource():
             params['in'] = json.dumps(self._in)
 
         return params
-
-

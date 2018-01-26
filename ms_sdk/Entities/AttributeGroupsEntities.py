@@ -1,5 +1,6 @@
 from .Entity import Entity
 
+
 class AttributeGroupsEntities(Entity):
     id = None
     entityId = None

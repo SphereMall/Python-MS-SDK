@@ -9,9 +9,10 @@ class GridFilter(Filter):
     _elements = {}
 
     def elements(self, elements):
+        self._elements[self.level] = {}
 
         for element in elements:
-            self._elements.update({self.level : {element.getName() : element.getValues()}})
+            self._elements[self.level].update({element.getName() : element.getValues()})
 
         self.level += 1
         return self
