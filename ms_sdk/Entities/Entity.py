@@ -1,6 +1,4 @@
-import inspect
-
-from ms_sdk.Resourses.Mixins.InteractsWithProperties import InteractsWithPropertiesMixin
+from ms_sdk.Lib.Mixins.InteractsWithProperties import InteractsWithPropertiesMixin
 
 
 class Entity(InteractsWithPropertiesMixin):

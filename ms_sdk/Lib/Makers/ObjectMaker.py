@@ -8,7 +8,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from .Maker import Maker
 from ms_sdk.Lib.Http.Response import Response
-from ms_sdk.Lib.Entity import Entity
+from ms_sdk.Entities.Entity import Entity
 
 from ms_sdk.Lib.Mappers import *
 

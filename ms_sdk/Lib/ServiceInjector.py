@@ -1,25 +1,29 @@
-from ms_sdk.Resourses.Products import (ProductsResource,
-                                       AttributeDisplayTypesResource,
-                                       AttributeGroupsEntitiesResource,
-                                       AttributeGroupsResource,
-                                       AttributesResource,
-                                       CatalogItemsResource,
-                                       EntitiesResource,
-                                       MediaResource,
-                                       EntityAttributesResource,
-                                       AttributeTypesResource,
-                                       AttributeValuesResource,
-                                       MediaTypesResource,
-                                       OptionsResource)
+from ms_sdk.Resourses.Products import (
+    ProductsResource,
+    AttributeDisplayTypesResource,
+    AttributeGroupsEntitiesResource,
+    AttributeGroupsResource,
+    AttributesResource,
+    CatalogItemsResource,
+    EntitiesResource,
+    MediaResource,
+    EntityAttributesResource,
+    AttributeTypesResource,
+    AttributeValuesResource,
+    MediaTypesResource,
+    OptionsResource,
+    BrandsResource,
+    FunctionalNamesResource,
+    ProductAttributeValuesResource)
 
 
 class ServiceInjectorMixin:
 
-    def attributes(self):
-        return AttributesResource(self)
-
     def attributeDisplayTypes(self):
         return AttributeDisplayTypesResource(self)
+
+    def attributes(self):
+        return AttributesResource(self)
 
     def attributeGroupsEntities(self):
         return AttributeGroupsEntitiesResource(self)
@@ -35,6 +39,9 @@ class ServiceInjectorMixin:
 
     def products(self):
         return ProductsResource(self, self)
+
+    def brands(self):
+        return BrandsResource(self)
 
     def options(self):
         return OptionsResource(self)
@@ -53,3 +60,9 @@ class ServiceInjectorMixin:
 
     def mediaTypes(self):
         return MediaTypesResource(self)
+
+    def functionalNames(self):
+        return FunctionalNamesResource(self)
+
+    def productAttributeValues(self):
+        return ProductAttributeValuesResource(self)

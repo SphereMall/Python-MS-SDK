@@ -3,7 +3,7 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from tests.settings import setup_client
-from ms_sdk.Lib.Entity import Entity
+from ms_sdk.Entities.Entity import Entity
 
 
 class TestAttributeDisplayTypesResource:

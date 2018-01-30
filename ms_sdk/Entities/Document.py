@@ -1,5 +1,5 @@
 from .Entity import Entity
-from ms_sdk.Resourses.Mixins.InteractsWithProperties import InteractsWithPropertiesMixin
+from ms_sdk.Lib.Mixins.InteractsWithProperties import InteractsWithPropertiesMixin
 
 
 class Document(Entity, InteractsWithPropertiesMixin):

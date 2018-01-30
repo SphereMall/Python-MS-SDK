@@ -1,5 +1,5 @@
 from .Entity import Entity
-from ms_sdk.Resourses.Mixins.InteractsWithAttributes import InteractsWithAttributesMixin
+from ms_sdk.Lib.Mixins.InteractsWithAttributes import InteractsWithAttributesMixin
 
 
 class Product(Entity, InteractsWithAttributesMixin):

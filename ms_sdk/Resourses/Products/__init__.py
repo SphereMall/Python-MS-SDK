@@ -1,4 +1,5 @@
 from .ProductsResource import *
+from .BrandsResource import *
 
 from .AttributesResource import *
 from .AttributeTypesResource import *
@@ -16,3 +17,5 @@ from .MediaResource import *
 from .MediaTypesResource import *
 
 from .OptionsResource import *
+from .FunctionalNamesResource import FunctionalNamesResource
+from .ProductAttributeValuesResource import ProductAttributeValuesResource
