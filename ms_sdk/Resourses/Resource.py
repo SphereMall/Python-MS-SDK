@@ -2,6 +2,9 @@ import json
 import sys
 import os
 
+from ms_sdk.Lib.Makers.CountMaker import CountMaker
+from ms_sdk.Lib.Specifications.Basic.IsVisible import IsVisible
+
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from ms_sdk.Lib.Http.Request import Request
 from ms_sdk.Lib.Http.Response import Response
@@ -15,7 +18,7 @@ class Resource:
     offset = 0
     _filter = ''
     _limit = 10
-    sort = []
+    _sort = []
     _ids = {}
     _in = []
     meta = False
@@ -25,6 +28,9 @@ class Resource:
         self.version = version or client.getVersion()
         self.handler = Request(self.client, self)
         self.maker = ObjectMaker()
+
+        # Reset params
+        self.resetData()
 
     def limit(self, _limit=10, offset=0):
         self._limit = _limit
@@ -53,16 +59,41 @@ class Resource:
         self._fields = fields
         return self
 
+    def setIn(self, field, values):
+        self._in = {field : values}
+        return self
+
+    def sort(self, field):
+        self._sort.append(field)
+        return self
+
+    def getSort(self):
+        return self._sort
+
+    def resetSort(self):
+        self._sort = []
+        return self
+
     def getFields(self):
         return self._fields
 
     def filter(self, _filter):
-        # if _filter == list:
-        # print('asddasasddas')
-        _filter = Filter(_filter)
+        if type(_filter) == IsVisible:
+            self._filter = Filter(_filter.asFilter())
+        else:
+            self._filter = Filter(_filter)
 
-        self._filter = _filter
-        return self._filter
+        return self
+
+    def getFilter(self):
+        return self._filter.getFilters()
+
+    def resetFilters(self):
+        try:
+            self._filter.filters = {}
+        except:
+            self._filter = None
+        return self
 
     def withMeta(self):
         self.meta = True
@@ -90,6 +121,11 @@ class Resource:
         response = self.handler.handle('GET', False, 'by', params)
         return self.make(response, False)
 
+    def count(self):
+        params = self.getQueryParams()
+        response = self.handler.handle('GET', False, 'count', params)
+        return self.make(response, False, CountMaker())
+
     def make(self, response, makeArray=True, maker: Maker = None):
         if not maker:
             maker = self.maker
@@ -115,12 +151,20 @@ class Resource:
             params['ids'] = ','.join(self._ids)
         if self._fields:
             params['fields'] = ','.join(self._fields)
-        if self.sort:
-            params['sort'] = ','.join(self.sort)
+        if self._sort:
+            params['sort'] = ','.join(self._sort)
         if self._filter:
-            params['where'] = str(self.filter)
-            print(params['where'])
+            params['where'] = self._filter.toString()
         if self._in:
             params['in'] = json.dumps(self._in)
 
         return params
+
+    def resetData(self):
+        self._fields = []
+        self.offset = 0
+        self._filter = ''
+        self._limit = 10
+        self._sort = []
+        self._ids = {}
+        self._in = []

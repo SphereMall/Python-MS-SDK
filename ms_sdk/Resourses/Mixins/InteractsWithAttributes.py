@@ -8,7 +8,7 @@ class InteractsWithAttributesMixin:
         return self.getAttributeByFieldNameAndValue('id', id)
 
     def getAttributesByIds(self, ids):
-        return self.getAttributesByFieldNameAndValues('id', ids)
+        return self.getAttributesByFieldNameAndValues(fieldName = 'id', value = ids)
 
     def getAttributeByCode(self, code):
         return self.getAttributeByFieldNameAndValue('code', code)
@@ -49,7 +49,6 @@ class InteractsWithAttributesMixin:
             return attributes
 
         for attribute in self.attributes:
-            if eval('attribute.' + fieldName) == value:
-                return attributes.append(attribute)
-
+            if (eval('attribute.' + fieldName) in value) or (eval('attribute.' + fieldName) == value):
+                attributes.append(attribute)
         return attributes

@@ -1,3 +1,5 @@
+import json
+
 from .FilterOperators import FilterOperators
 from .FilterConditions import FilterConditions
 
@@ -18,39 +20,53 @@ class Filter(FilterOperators, FilterConditions):
 
     filters = {}
 
-    def __init__(self, filters={}):
+    def __init__(self, filters = {}):
         if filters:
             self.setFilters(filters)
 
-    def getFilters(self, filters):
+    def getFilters(self):
         return self.filters
 
     def setFilters(self, filters):
-        print(filters)
-        for (field, rules) in enumerate(filters):
-            print('-------- First for A --------')
+        self.filters = {}
+        for field, rules in filters.items():
             if field == 'fullSearch':
-                print('-------- First for B --------')
                 self.addFilter(field, rules, None)
                 continue
 
-            for (operator, value) in enumerate(rules):
-                print('-------- Second for A --------')
-                print(rules[operator])
+            for operator, value in rules.items():
                 if (not operator in self.availableFilters) or (
                         (not value) and value != '0'):
-                    print('-------- Second for B --------')
                     continue
                 self.addFilter(field, value, operator)
         return self
 
     def addFilter(self, field, value, operator):
-        print('-------- BBBBB --------')
         if field and (value or value == '0'):
-            if operator is None:
-                self.filters[field][operator] = value
+            if operator:
+                self.filters[field] = {}
+                self.filters[field].update({operator : str(value)})
             else:
-                print(self.filters)
                 self.filters[field] = value
 
         return self
+
+    def toString(self):
+        return str(self.filters).replace("'", '"').replace(' :', ':').replace(': ', ':')
+        #
+        # for field, rules in self.filters.items():
+        #     compounded = self.compound(field, rules)
+        #     if compounded:
+        #         setParams.update(compounded)
+        # print(json.dumps(setParams))
+        # return '{%s}' % (',&'.join(setParams))
+
+    # def compound(self, field, rules):
+    #     out = {}
+    #     if type(rules) == list:
+    #         for operator, value in rules.items:
+    #             out.update({field : {operator : value}})
+    #         return out
+    #     out = {field : rules}
+    #     return out
+
