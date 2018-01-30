@@ -3,8 +3,6 @@ from ms_sdk.Lib.Specifications.Basic.FilterSpecification import FilterSpecificat
 
 class IsVisible(FilterSpecification):
 
-
-
     def isSatisfiedBy(self, entity):
         if hasattr(entity, 'visible'):
             return bool(entity.visible)

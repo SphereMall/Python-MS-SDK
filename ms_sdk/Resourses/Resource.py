@@ -1,7 +1,6 @@
 import json
 import sys
 import os
-
 from ms_sdk.Lib.Makers.CountMaker import CountMaker
 from ms_sdk.Lib.Specifications.Basic.IsVisible import IsVisible
 
@@ -15,15 +14,20 @@ from ms_sdk.Lib.Filters.Filter import Filter
 
 class Resource:
     _fields = []
-    offset = 0
+    _offset = 0
     _filter = ''
     _limit = 10
     _sort = []
-    _ids = {}
+    _ids = []
     _in = []
-    meta = False
+    _meta = False
 
-    def __init__(self, client, version=''):
+    def __init__(self, client: object, version: str = '') -> object:
+        """
+        BaseService initializer
+        :param client:
+        :param version:
+        """
         self.client = client
         self.version = version or client.getVersion()
         self.handler = Request(self.client, self)
@@ -32,52 +36,106 @@ class Resource:
         # Reset params
         self.resetData()
 
-    def limit(self, _limit=10, offset=0):
+    def limit(self, _limit: int = 10, offset: int = 0):
+        """
+        Set a limit on the number of resource and offset for skipping the number of resource
+        :param _limit:
+        :param offset:
+        :return: self
+        """
         self._limit = _limit
-        self.offset = offset
+        self._offset = offset
 
         return self
 
     def getLimit(self):
+        """
+        Get the resource limit
+        :rtype: int
+        """
         return self._limit
 
-    def getOffset(self):
-        return self.offset
+    def getOffset(self) -> int:
+        """
+        Get the resource offset
+        :rtype: int
+        """
+        return self._offset
 
-    def ids(self, ids):
+    def ids(self, ids: list) -> object:
+        """
+        Set list of ids for selecting list of resources
+        :param ids:
+        :return: self
+        """
         self._ids = []
+
         if type(ids) == list:
             self._ids = ids
         else:
             self._ids.append(str(ids))
+
         return self
 
-    def getIds(self):
+    def getIds(self) -> list:
+        """
+        Get list of ids for selecting list of resources
+        :rtype: list
+        """
         return self._ids
 
-    def fields(self, fields):
-        self._fields = fields
-        return self
-
     def setIn(self, field, values):
-        self._in = {field : values}
+        """
+        :param field:
+        :param values:
+        :return: self
+        """
+        self.__in = {field : values}
         return self
 
-    def sort(self, field):
+    def sort(self, field) -> object:
+        """
+        Set field for sorting
+        :param field:
+        :return: self
+        """
         self._sort.append(field)
         return self
 
-    def getSort(self):
+    def getSort(self) -> list:
+        """
+        Get fields for sorting
+        :rtype: list
+        """
         return self._sort
 
     def resetSort(self):
+        """
+        Reset sorting
+        """
         self._sort = []
-        return self
 
-    def getFields(self):
+    def fields(self, fields: list) -> object:
+        """
+        Set list of fields for selecting the resource
+        :return: self
+        """
+        self._fields = fields
+        return self
+    
+    def getFields(self) -> list:
+        """
+        Get list of fields for selecting the resources
+        :rtype: list
+        """
         return self._fields
 
-    def filter(self, _filter):
+    def filter(self, _filter) -> object:
+        """
+        Set filter to the resource selecting
+        :param list|Filter|FilterSpecification _filter:
+        :return: self
+        """
         if type(_filter) == IsVisible:
             self._filter = Filter(_filter.asFilter())
         else:
@@ -85,23 +143,39 @@ class Resource:
 
         return self
 
-    def getFilter(self):
+    def getFilter(self) -> Filter:
+        """
+        Get current filter
+        :rtype: Filter
+        """
         return self._filter.getFilters()
 
     def resetFilters(self):
+        """
+        Reset current filters
+        """
         try:
             self._filter.filters = {}
         except:
             self._filter = None
         return self
 
-    def withMeta(self):
-        self.meta = True
+    def withMeta(self) -> object:
+        """
+        :return: self
+        """
+        self._meta = True
         return self
 
-    def get(self, id):
+    def get(self, id: int):
+        """
+        Get entity by id
+        :param id:
+        :rtype: list
+        """
         if not id:
             return print('Id is not specified')
+
         params = {}
 
         if self._fields:
@@ -111,26 +185,43 @@ class Resource:
         return self.make(response, False)
 
     def all(self):
+        """
+        Get list of entities
+        :rtype: list
+        """
         params = self.getQueryParams()
         response = self.handler.handle('GET', False, 'by', params)
         return self.make(response, False)
 
     def first(self):
+        """
+        Get first entity - limit = 1
+        :rtype: Entity|None
+        """
         self.limit(1, 0)
         params = self.getQueryParams()
         response = self.handler.handle('GET', False, 'by', params)
         return self.make(response, False)
 
     def count(self):
+        """
+        :rtype: int
+        """
         params = self.getQueryParams()
         response = self.handler.handle('GET', False, 'count', params)
         return self.make(response, False, CountMaker())
 
-    def make(self, response, makeArray=True, maker: Maker = None):
+    def make(self, response, makeArray: bool=True, maker: Maker = None):
+        """
+        :param response: Promise|Response $response
+        :param makeArray:
+        :param maker:
+        :rtype: list|Collection|Entity|int
+        """
         if not maker:
             maker = self.maker
 
-        maker.setAsCollection(self.meta)
+        maker.setAsCollection(self._meta)
 
         if isinstance(response, Response):
             # TODO: add afterAPICall
@@ -138,12 +229,14 @@ class Resource:
                 return maker.makeArray(response)
 
             return maker.makeSingle(response)
-
         return {'response': response, 'maker': maker, 'makeArray': makeArray}
 
     def getQueryParams(self):
+        """
+        :rtype: list
+        """
         params = {
-            'offset': self.offset,
+            'offset': self._offset,
             'limit': self._limit
         }
 
@@ -161,8 +254,11 @@ class Resource:
         return params
 
     def resetData(self):
+        """
+        Reset data when initialization
+        """
         self._fields = []
-        self.offset = 0
+        self._offset = 0
         self._filter = ''
         self._limit = 10
         self._sort = []

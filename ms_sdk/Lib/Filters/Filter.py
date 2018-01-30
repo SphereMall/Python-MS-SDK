@@ -1,10 +1,9 @@
-import json
-
 from .FilterOperators import FilterOperators
 from .FilterConditions import FilterConditions
 
 
 class Filter(FilterOperators, FilterConditions):
+
     availableFilters = {
         FilterOperators.LIKE,
         FilterOperators.LIKE_LEFT,
@@ -20,15 +19,27 @@ class Filter(FilterOperators, FilterConditions):
 
     filters = {}
 
-    def __init__(self, filters = {}):
+    def __init__(self, filters: dict = {}):
+        """
+        :param filters:
+        """
         if filters:
             self.setFilters(filters)
 
     def getFilters(self):
+        """
+        Get the filter array
+        :return: dict
+        """
         return self.filters
 
-    def setFilters(self, filters):
+    def setFilters(self, filters: dict):
+        """
+        :param filters: dict
+        :return:
+        """
         self.filters = {}
+
         for field, rules in filters.items():
             if field == 'fullSearch':
                 self.addFilter(field, rules, None)
@@ -39,9 +50,17 @@ class Filter(FilterOperators, FilterConditions):
                         (not value) and value != '0'):
                     continue
                 self.addFilter(field, value, operator)
+                
         return self
 
     def addFilter(self, field, value, operator):
+        """
+        Adds a filter to the resource request
+        :param field: the field to filter on
+        :param value: the value of the attribute to operate on
+        :param operator: the filter operator (eq,ne etc)
+        :return: self
+        """
         if field and (value or value == '0'):
             if operator:
                 self.filters[field] = {}
@@ -52,6 +71,11 @@ class Filter(FilterOperators, FilterConditions):
         return self
 
     def toString(self):
+        """
+        Convert the filter object to a string for a URL
+        :rtype: str
+        :return:
+        """
         return str(self.filters).replace("'", '"').replace(' :', ':').replace(': ', ':')
         #
         # for field, rules in self.filters.items():

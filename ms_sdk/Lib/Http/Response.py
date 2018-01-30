@@ -1,16 +1,18 @@
 import json
 from .Meta import Meta
-import requests
 
 
 class Response:
 
     def __init__(self, response):
+        """
+        Response initializer.
+        :param response:
+        """
         self.statusCode = response.status_code
         self.headers = response.headers
 
         contents = response.json()
-        # print(contents['success'])
 
         try:
             self.data = contents['data']
@@ -18,6 +20,7 @@ class Response:
             self.errors = contents['error'] or None
             self.version = contents['ver']
             self.included = contents['included'] or None
+
             if not contents['meta']:
                 self.meta = Meta(contents['meta'].values())
 

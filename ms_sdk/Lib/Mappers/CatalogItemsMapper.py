@@ -11,4 +11,5 @@ class CatalogItemsMapper(Mapper):
         if catalogItem.filterSettings:
             catalogItem.filterSettings = json.loads(
                 str(catalogItem.filterSettings))
+
         return catalogItem

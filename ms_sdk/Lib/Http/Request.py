@@ -9,10 +9,22 @@ from .Response import Response
 class Request:
 
     def __init__(self, client, resource):
+        """
+        RequestHandler initializer.
+        :param client:
+        :param resource:
+        """
         self.client = client
         self.resource = resource
 
-    def handle(self, method, body=False, uriAppend=False, queryParams=[]):
+    def handle(self, method: str, body: bool = False, uriAppend: bool = False, queryParams: dict = []):
+        """
+        :param method:
+        :param body:
+        :param uriAppend:
+        :param queryParams:
+        :return: Promise|Response
+        """
         _async = self.client.getAsync()
         options = []
 

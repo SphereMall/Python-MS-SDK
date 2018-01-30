@@ -4,12 +4,19 @@ from ms_sdk.Lib.Mixins.InteractsWithProperties import InteractsWithPropertiesMix
 class Entity(InteractsWithPropertiesMixin):
 
     def __init__(self, array):
+        """
+        Entity constructor.
+        :param array:
+        """
         if not array:
             return self
 
         return self.setPropertyList(array)
 
     def asArray(self):
+        """
+        :rtype: list
+        """
         properties = {}
 
         for itemKey, itemValue in self:

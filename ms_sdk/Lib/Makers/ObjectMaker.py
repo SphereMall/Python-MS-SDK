@@ -1,15 +1,11 @@
 import sys
 import os
-
 from ms_sdk.Lib.Collection import Collection
 from ms_sdk.Lib.Http.Meta import Meta
-
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-
 from .Maker import Maker
 from ms_sdk.Lib.Http.Response import Response
 from ms_sdk.Entities.Entity import Entity
-
 from ms_sdk.Lib.Mappers import *
 
 
@@ -41,12 +37,15 @@ class ObjectMaker(Maker):
         for element in response.getData():
             mapperClass = self.getMapperClass(element['type'])
             result.append(self.createObject(mapperClass, element, included))
+
         if len(result) == 1:
             return result[0]
+
         return result
 
     def getIncludedArray(self, included):
         result = {}
+
         if not included:
             return result
 
@@ -82,12 +81,14 @@ class ObjectMaker(Maker):
     def getAttributes(self, element):
         if element['attributes'] and isinstance(element['attributes'], dict):
             return element['attributes']
+
         return {}
 
     def getRelationships(self, element, included):
         if not element['relationships'] and not isinstance(
                 element['relationships'], dict):
             return {}
+
         result = {}
 
         for (relationKey, relationValue) in element['relationships'].items():
@@ -95,4 +96,5 @@ class ObjectMaker(Maker):
                 if not relationData['id'] in included[relationData['type']]:
                     continue
                 result.update({relationKey: included[relationData['type']]})
+
         return result

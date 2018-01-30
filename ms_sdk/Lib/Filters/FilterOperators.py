@@ -1,4 +1,7 @@
+
+
 class FilterOperators:
+
     LIKE = 'l'
     LIKE_LEFT = 'll'
     LIKE_RIGHT = 'lr'

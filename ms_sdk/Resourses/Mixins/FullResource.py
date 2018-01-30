@@ -1,3 +1,5 @@
+
+
 class FullResourceMixin:
 
     def fullAll(self):

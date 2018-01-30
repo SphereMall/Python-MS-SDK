@@ -1,10 +1,14 @@
+
+
 class InteractsWithPropertiesMixin:
+
     properties = {}
     entity = {}
 
     def getProperty(self, name):
         if self.properties[name]:
             return self.properties[name]
+
         return None
 
     def getPropertiesField(self):
@@ -18,7 +22,6 @@ class InteractsWithPropertiesMixin:
             self.properties.update({optionKey: optionValue})
 
     def setPropertyList(self, data):
-
         for optionKey, optionValue in data.items():
             if hasattr(self, optionKey):
                 setattr(self, optionKey, optionValue)

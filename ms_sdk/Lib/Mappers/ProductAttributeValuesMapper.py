@@ -6,8 +6,8 @@ class ProductAttributeValuesMapper(Mapper):
 
     def doCreateObject(self, array):
         raw = {}
-        # print(array)
         i = 0
+
         for item in array.values():
             i += 1
             raw.update({str(i): {
@@ -31,6 +31,7 @@ class ProductAttributeValuesMapper(Mapper):
 
         mapper = AttributesMapper()
         result = []
+
         for item in raw.values():
             result.append(mapper.createObject(item.get(list(item)[0])))
 

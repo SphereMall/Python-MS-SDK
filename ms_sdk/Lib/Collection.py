@@ -1,14 +1,16 @@
+
+
 class Collection:
 
     total = 0
     objects = {}
     meta = None
-
     pointer = 0
 
     def __init__(self, objects=None, meta=None):
         if objects:
             self.objects = objects
+
             try:
                 self.total = len(objects)
             except BaseException:
@@ -28,8 +30,10 @@ class Collection:
 
     def asArray(self):
         # TODO: Iterate  with other approach
+
         for item in self:
             pass
+
         return self.objects
 
     def getMeta(self):
@@ -46,6 +50,7 @@ class Collection:
 
     def next(self):
         row = self.getRow(self.pointer)
+
         if row:
             self.pointer += 1
 
@@ -54,6 +59,7 @@ class Collection:
 
     def valid(self):
         isValid = (self.current() or False)
+
         if not isValid:
             self.pointer = 0
 
