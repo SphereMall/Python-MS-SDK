@@ -13,26 +13,27 @@ class TestAttributesResource:
         for item in attrList:
             isinstance(type(item), Attribute)
 
-    def testAttributesBelongEntityAttributeGroupAttribute(self):
-        attributes = setup_client().attributes()
-        attrList = attributes.belong('product', 2, 0)
-
-        for item in attrList:
-            isinstance(type(item), Attribute)
-
-    def testAttributesBelongEntityAttributeGroup(self):
-        attributes = setup_client().attributes()
-        attrList = attributes.belong('product', 2)
-
-        for item in attrList:
-            isinstance(type(item), Attribute)
-
-    def testAttributesBelongEntity(self):
-        attributes = setup_client().attributes()
-        attrList = attributes.belong('product')
-
-        for item in attrList:
-            isinstance(type(item), Attribute)
+    # TODO: Belongs deleted in the database
+    # def testAttributesBelongEntityAttributeGroupAttribute(self):
+    #     attributes = setup_client().attributes()
+    #     attrList = attributes.belong('product', 2, 0)
+    #
+    #     for item in attrList:
+    #         isinstance(type(item), Attribute)
+    #
+    # def testAttributesBelongEntityAttributeGroup(self):
+    #     attributes = setup_client().attributes()
+    #     attrList = attributes.belong('product', 2)
+    #
+    #     for item in attrList:
+    #         isinstance(type(item), Attribute)
+    #
+    # def testAttributesBelongEntity(self):
+    #     attributes = setup_client().attributes()
+    #     attrList = attributes.belong('product')
+    #
+    #     for item in attrList:
+    #         isinstance(type(item), Attribute)
 
     def testAttributeHelpMethods(self):
         products = setup_client().products().limit(3).full()

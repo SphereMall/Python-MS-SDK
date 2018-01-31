@@ -18,3 +18,5 @@ from . import UsersMapper
 from . import ImagesMapper
 from . import ImageTypesMapper
 from . import OptionsMapper
+
+from . import DocumentsMapper

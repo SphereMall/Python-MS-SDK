@@ -1,3 +1,4 @@
+from ms_sdk.Resourses.Documents.DocumentsResource import DocumentsResource
 from ms_sdk.Resourses.Products import (
     ProductsResource,
     AttributeDisplayTypesResource,
@@ -19,6 +20,7 @@ from ms_sdk.Resourses.Products import (
 
 class ServiceInjectorMixin:
 
+    # Products
     def attributeDisplayTypes(self):
         return AttributeDisplayTypesResource(self)
 
@@ -66,3 +68,7 @@ class ServiceInjectorMixin:
 
     def productAttributeValues(self):
         return ProductAttributeValuesResource(self)
+
+    # Documents
+    def documents(self):
+        return DocumentsResource(self)

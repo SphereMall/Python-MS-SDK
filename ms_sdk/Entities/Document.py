@@ -1,8 +1,8 @@
 from .Entity import Entity
-from ms_sdk.Lib.Mixins.InteractsWithProperties import InteractsWithPropertiesMixin
+from ms_sdk.Lib.Mixins.InteractsWithAttributes import InteractsWithAttributesMixin
 
 
-class Document(Entity, InteractsWithPropertiesMixin):
+class Document(Entity, InteractsWithAttributesMixin):
 
     id = None
     urlCode = None
