@@ -3,6 +3,7 @@ from .Meta import Meta
 
 
 class Response:
+    _meta = None
 
     def __init__(self, response):
         """
@@ -22,7 +23,7 @@ class Response:
             self.included = contents['included'] or None
 
             if not contents['meta']:
-                self.meta = Meta(contents['meta'].values())
+                self._meta = Meta(contents['meta'].values())
 
         except Exception as ex:
             self.success = False
@@ -50,4 +51,4 @@ class Response:
         return self.statusCode
 
     def getMeta(self):
-        return self.meta
+        return self._meta

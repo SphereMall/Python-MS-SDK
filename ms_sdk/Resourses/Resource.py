@@ -227,7 +227,6 @@ class Resource:
             # TODO: add afterAPICall
             if makeArray:
                 return maker.makeArray(response)
-
             return maker.makeSingle(response)
         return {'response': response, 'maker': maker, 'makeArray': makeArray}
 

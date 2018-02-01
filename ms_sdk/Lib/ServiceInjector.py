@@ -1,4 +1,6 @@
 from ms_sdk.Resourses.Documents.DocumentsResource import DocumentsResource
+from ms_sdk.Resourses.Grapher.CorrelationsResource import CorrelationsResource
+from ms_sdk.Resourses.Grapher.GridResource import GridResource
 from ms_sdk.Resourses.Products import (
     ProductsResource,
     AttributeDisplayTypesResource,
@@ -72,3 +74,10 @@ class ServiceInjectorMixin:
     # Documents
     def documents(self):
         return DocumentsResource(self)
+
+    # Grapher service
+    def correlations(self):
+        return CorrelationsResource(self)
+
+    def grid(self):
+        return GridResource(self)

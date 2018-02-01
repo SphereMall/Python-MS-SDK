@@ -20,3 +20,4 @@ from . import ImageTypesMapper
 from . import OptionsMapper
 
 from . import DocumentsMapper
+from . import FacetAttributesMapper
