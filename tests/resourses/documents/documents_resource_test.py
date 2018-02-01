@@ -11,7 +11,7 @@ class TestDocumentsResource:
         isinstance(type(documents), Document)
 
     def testAttributeHelpMethods(self):
-        documents = setup_client().documents().limit(3).full()
+        documents = setup_client().documents().limit(1).full()
 
         attribute = documents.getAttributeByCode('title')
         assert 'title' == attribute.code

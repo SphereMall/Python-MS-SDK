@@ -1,2 +1,2 @@
-from ms_sdk.Lib.Helpers.Exceptions import ConfigurationException
+# from .Exceptions import ConfigurationException
 from .ServiceInjector import *
