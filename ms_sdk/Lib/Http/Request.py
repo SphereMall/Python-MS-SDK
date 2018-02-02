@@ -26,7 +26,7 @@ class Request:
         :return: Promise|Response
         """
         _async = self.client.getAsync()
-        options = []
+        options = {}
 
         # Set user authorization
         # if not _async:
@@ -68,6 +68,11 @@ class Request:
 
         if method.lower() == 'get':
             return Response(requests.get(url, options, headers=headers))
-
+        elif method.lower() == 'delete':
+            return Response(requests.delete(url, data=options, headers=headers))
+        elif method.lower() == 'put':
+            return Response(requests.put(url, options, headers=headers))
+        elif method.lower() == 'post':
+            return Response(requests.post(url, options, headers=headers))
     # def setAuthorization():
         # authToken = AuthToken(self.client)

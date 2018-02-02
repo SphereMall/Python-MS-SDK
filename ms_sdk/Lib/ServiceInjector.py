@@ -1,6 +1,10 @@
 from ms_sdk.Resourses.Documents.DocumentsResource import DocumentsResource
 from ms_sdk.Resourses.Grapher.CorrelationsResource import CorrelationsResource
 from ms_sdk.Resourses.Grapher.GridResource import GridResource
+from ms_sdk.Resourses.Users.CompaniesResource import CompaniesResource
+from ms_sdk.Resourses.Users.MessagesResource import MessagesResource
+from ms_sdk.Resourses.Users.UsersResource import UsersResource
+
 from ms_sdk.Resourses.Products import (
     ProductsResource,
     AttributeDisplayTypesResource,
@@ -18,6 +22,7 @@ from ms_sdk.Resourses.Products import (
     BrandsResource,
     FunctionalNamesResource,
     ProductAttributeValuesResource)
+from ms_sdk.Resourses.Users.WishListItemsResource import WishListItemsResource
 
 
 class ServiceInjectorMixin:
@@ -42,7 +47,7 @@ class ServiceInjectorMixin:
         return AttributeValuesResource(self)
 
     def products(self):
-        return ProductsResource(self, self)
+        return ProductsResource(self)
 
     def brands(self):
         return BrandsResource(self)
@@ -81,3 +86,16 @@ class ServiceInjectorMixin:
 
     def grid(self):
         return GridResource(self)
+
+    # Users service
+    def users(self):
+        return UsersResource(self)
+
+    def companies(self):
+        return CompaniesResource(self)
+
+    def messages(self):
+        return MessagesResource(self)
+
+    def wishListItems(self):
+        return WishListItemsResource(self)

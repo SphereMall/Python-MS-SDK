@@ -14,6 +14,9 @@ from . import CatalogItemsMapper
 from . import FunctionalNamesMapper
 
 from . import UsersMapper
+from . import WishListItemsMapper
+from . import CompaniesMapper
+from . import UserMessagesMapper
 
 from . import ImagesMapper
 from . import ImageTypesMapper

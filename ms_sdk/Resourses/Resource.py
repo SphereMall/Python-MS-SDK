@@ -62,6 +62,30 @@ class Resource:
         """
         return self._offset
 
+    def delete(self, id):
+        response = self.handler.handle('DELETE', False, id)
+
+        if not response.getSuccess():
+            raise response.getErrorMessage()
+
+        return response.getSuccess()
+
+    def create(self, data):
+        response = self.handler.handle('POST', queryParams=data)
+
+        if not response.getSuccess():
+            raise response.getErrorMessage()
+
+        return self.make(response, False)
+
+    def update(self, id, data):
+        response = self.handler.handle('PUT', data, id)
+
+        if not response.getSuccess():
+            raise response.getErrorMessage()
+
+        return self.make(response, False)
+
     def ids(self, ids: list) -> object:
         """
         Set list of ids for selecting list of resources
