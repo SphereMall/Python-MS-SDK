@@ -15,7 +15,6 @@ class TestUsersResource:
         for user in allUsers:
             isinstance(type(user), User)
 
-
     def testSubscribeUserIfNotExistOrNotSubscriber(self):
         email = 'ttest@test.com'
 
@@ -24,7 +23,7 @@ class TestUsersResource:
 
         assert user.email == email
         assert '1' == user.isSubscriber
-        # assert users.delete(user.id) - Done
+        assert users.delete(user.id)
 
     def testSubscribeUserIfExistAndSubscribe(self):
         email = 'pytqhonTe3st@test.com'
@@ -59,9 +58,7 @@ class TestUsersResource:
         users = setup_client().users()
         user = users.filter(IsUserEmail(email).asFilter()).limit(1)
 
-        # if user or IsUserSubscriber().isSatisfiedBy(user):
         assert user.unsubscribe('0') == None
-
 
     def testUserWishList(self):
         userId = 5
