@@ -76,7 +76,13 @@ class Filter(FilterOperators, FilterConditions):
         :rtype: str
         :return:
         """
-        return str(self.filters).replace("'", '"').replace(' :', ':').replace(': ', ':')
+
+        if len(self.filters) > 1:
+            filters = '[' + str(self.filters).replace("'", '"').replace(' :', ':').replace(': ', ':').replace(', ', '}, {') + ']'
+        else:
+            filters = str(self.filters).replace("'", '"').replace(' :', ':').replace(': ', ':')
+
+        return filters
         #
         # for field, rules in self.filters.items():
         #     compounded = self.compound(field, rules)

@@ -1,3 +1,4 @@
+import time
 from ms_sdk.Entities.User import User
 from ms_sdk.Lib.Filters.FilterOperators import FilterOperators
 from ms_sdk.Lib.Helpers.Guid import Guid
@@ -40,3 +41,19 @@ class UsersResource(Resource):
     def getWishList(self, userId):
         response = self.handler.handle('GET', False, 'wishlist/' + str(userId))
         return self.make(response, True)
+
+    def addToWishList(self, userId, productId):
+        return self.client.wishListItems().create({
+            'userId': userId,
+            'productId': productId,
+            'createDate': time.strftime('%Y-%m-%d %H:%M:%S'),
+        })
+
+    def removeFromWishList(self, userId, productId):
+        item = self.client.wishListItems().filter({
+            'userId': {'e': userId},
+            'productId': {'e': productId}
+        }).first()
+
+        if item:
+            return self.client.wishListItems().delete(item.id)

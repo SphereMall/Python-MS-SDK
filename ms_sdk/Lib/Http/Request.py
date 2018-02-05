@@ -17,7 +17,7 @@ class Request:
         self.client = client
         self.resource = resource
 
-    def handle(self, method: str, body: bool = False, uriAppend: bool = False, queryParams: dict = []):
+    def handle(self, method: str, body: bool = False, uriAppend: bool = False, queryParams: dict = {}):
         """
         :param method:
         :param body:

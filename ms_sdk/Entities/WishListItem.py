@@ -8,4 +8,5 @@ class WishListItem(Entity):
     createDate = None
     updateDate = None
 
+    productId = None
     product = None

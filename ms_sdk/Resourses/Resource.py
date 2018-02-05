@@ -224,6 +224,7 @@ class Resource:
         """
         self.limit(1, 0)
         params = self.getQueryParams()
+
         response = self.handler.handle('GET', False, 'by', params)
         return self.make(response, False)
 

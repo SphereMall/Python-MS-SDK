@@ -27,7 +27,7 @@ class TestUsersResource:
         # assert users.delete(user.id) - Done
 
     def testSubscribeUserIfExistAndSubscribe(self):
-        email = 'pytqhonTest@test.com'
+        email = 'pytqhonTe3st@test.com'
 
         users = setup_client().users()
         user = users.create({
@@ -41,7 +41,7 @@ class TestUsersResource:
         assert users.delete(user.id)
 
     def testUnsubscribeUser(self):
-        email = 'qwpythonTest@test.com'
+        email = 'qwpythonTe2st@test.com'
 
         users = setup_client().users()
         user = users.create({
@@ -64,16 +64,18 @@ class TestUsersResource:
 
 
     def testUserWishList(self):
-        userId = '5'
-        productId = '6354'
+        userId = 5
+        productId = 6354
 
         allWishs = setup_client().users().getWishList(userId)
 
         for wish in allWishs:
             isinstance(type(wish), WishListItem)
 
-        # wishListItem = setup_client().users().addToWishList(userId, productId)
-        # assert userId == int(wishListItem.userId)
-        # assert productId == int(wishListItem.productId)
-        #
-        # setup_client().users().removeFromWishList(userId, productId)
+        setup_client().users().removeFromWishList(userId, productId)
+        wishListItem = setup_client().users().addToWishList(userId, productId)
+
+        assert userId == int(wishListItem.userId)
+        assert productId == int(wishListItem.productId)
+
+        setup_client().users().removeFromWishList(userId, productId)
