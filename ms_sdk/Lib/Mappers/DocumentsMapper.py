@@ -10,12 +10,14 @@ class DocumentsMapper(Mapper):
         document = Document(array)
 
         try:
-            if array.get('attributes'):
+            if array.get('attributes') and array.get('attributeValues'):
                 document.attributes = []
                 mapper = AttributesMapper()
 
                 for attribute in array.get('attributes').items():
-                    document.attributes.append(mapper.createObject(attribute[1]))
+                    attribute = attribute[1]
+                    attribute.update(self.getAttributeValues(attribute, array['attributeValues']))
+                    document.attributes.append(mapper.createObject(attribute))
         except:
             pass
 
@@ -27,3 +29,11 @@ class DocumentsMapper(Mapper):
             pass
 
         return document
+
+    def getAttributeValues(self, attribute, attributeValues):
+        values = {}
+
+        for attributeValue in attributeValues.items():
+            if attribute['id'] == attributeValue[1]['attributeId']:
+                values.update({attributeValue[1]['id']: attributeValue[1]})
+        return {'attributeValues': values}

@@ -7,15 +7,19 @@ from ms_sdk.Entities.Attribute import Attribute
 class AttributesMapper(Mapper):
 
     def doCreateObject(self, array):
-        attribute = Attribute(array)
 
-        try:
-            if array.get('attributeValues'):
-                mapper = AttributeValuesMapper()
-                attribute.values = mapper.createObject(
-                    array.get('attributeValues'))
-        except BaseException:
-            pass
+        attribute = Attribute(array)
+        attribute.values = []
+
+        # try:
+        if array.get('attributeValues'):
+            mapper = AttributeValuesMapper()
+
+            if array['attributeValues'].get('id'):
+                attribute.values = mapper.createObject(array['attributeValues'])
+            else:
+                for item in array.get('attributeValues').items():
+                    attribute.values.append(mapper.createObject(item[1]))
 
         try:
             if array.get('attributeGroups'):

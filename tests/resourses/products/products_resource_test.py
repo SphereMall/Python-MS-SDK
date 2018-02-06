@@ -54,4 +54,4 @@ class TestProductsResource:
         assert 'test-html' == attribute.code
 
         attributeValue = product.getFirstValueByAttributeCode('test-html')
-        assert 'fghfghfgh' == attributeValue
+        assert 'fghfghfgh' == attributeValue.value

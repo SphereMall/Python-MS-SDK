@@ -21,22 +21,20 @@ class InteractsWithAttributesMixin:
 
         try:
             values = attribute.values[0]
-        except BaseException:
+        except:
             values = attribute.values
-
-        if not attribute:
-            return None
 
         if not values:
             return None
 
-        return values.title
+        return values
 
     def getAttributeByFieldNameAndValue(self, fieldName, value):
         if not self.attributes:
             return None
 
         for attribute in self.attributes:
+
             if eval('attribute.' + fieldName) == value:
                 return attribute
 

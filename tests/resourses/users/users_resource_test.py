@@ -16,17 +16,17 @@ class TestUsersResource:
             isinstance(type(user), User)
 
     def testSubscribeUserIfNotExistOrNotSubscriber(self):
-        email = 'ttest@test.com'
+        email = 'test_unique@test.com'
 
         users = setup_client().users()
         user = users.filter(IsUserEmail(email).asFilter()).limit(1).all()
 
         assert user.email == email
-        assert '1' == user.isSubscriber
-        assert users.delete(user.id)
+        assert '0' == user.isSubscriber
+        # assert users.delete(user.id)
 
     def testSubscribeUserIfExistAndSubscribe(self):
-        email = 'pytqhonTe3st@test.com'
+        email = 'pytq33st@test.com'
 
         users = setup_client().users()
         user = users.create({
@@ -62,7 +62,7 @@ class TestUsersResource:
 
     def testUserWishList(self):
         userId = 5
-        productId = 6354
+        productId = 6329
 
         allWishs = setup_client().users().getWishList(userId)
 
@@ -74,5 +74,3 @@ class TestUsersResource:
 
         assert userId == int(wishListItem.userId)
         assert productId == int(wishListItem.productId)
-
-        setup_client().users().removeFromWishList(userId, productId)
