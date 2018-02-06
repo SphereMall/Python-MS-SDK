@@ -14,13 +14,13 @@ from tests.settings import *
 
 
 class TestGridFilter:
-    def testGridFilterSingleElement(self):
+    def test_grid_filter_single_element(self):
         gfe = FunctionalNameFilter([6])
 
         assert 'functionalNames' == gfe.getName()
         assert [6] == gfe.getValues()
 
-    def testGridFilterElements(self):
+    def test_grid_filter_elements(self):
         gfe = AttributeFilter([128, 1, 2])
 
         assert 'attributes' == gfe.getName()
@@ -32,7 +32,7 @@ class TestGridFilter:
         assert [1, 3, 5] == gfe.getValues()
         assert [3, 1, 5] != gfe.getValues()
 
-    def testGridFilter(self):
+    def test_grid_filter(self):
         attr = AttributeFilter([1, 2, 3])
 
         assert 'attributes' == attr.getName()
@@ -73,7 +73,7 @@ class TestGridFilter:
 
         assert 'params=[{"attributes":[1022],"entity":["product"]},{"functionalNames":[5]}]' == fl
 
-    def testGridFilterParams(self):
+    def test_grid_filter_params(self):
         attr1 = AttributeFilter([1, 2, 3])
         attr2 = AttributeFilter([3, 2, 4])
 
@@ -95,7 +95,7 @@ class TestGridFilter:
 
         assert 'params=[{"attributes":[1,5]},{"functionalNames":[1,2],"attributes":[3,2,4]}]' == f
 
-    def testGridFilterWithPrice(self):
+    def test_grid_filter_with_price(self):
         attr = AttributeFilter([1022])
 
         assert 'attributes' == attr.getName()
@@ -122,7 +122,7 @@ class TestGridFilter:
 
         assert 'params=[{"attributes":[1022],"functionalNames":[5],"brands":[1],"priceRange":[10000,50000]}]' == f
 
-    def testGridFilterWithFactors(self):
+    def test_grid_filter_with_factors(self):
         attr = AttributeFilter([1022])
 
         assert 'attributes' == attr.getName()
@@ -144,7 +144,7 @@ class TestGridFilter:
 
         assert 'params=[{"attributes":[1022]},{"functionalNames":[5],"factors":[1]}]' == f
 
-    def testGridFilterWithAttributeAndFunctionalName(self):
+    def test_grid_filter_with_attribute_and_functional_name(self):
         attr = AttributeFilter([1022])
 
         assert 'attributes' == attr.getName()
@@ -166,7 +166,7 @@ class TestGridFilter:
 
         assert 'params=[{"entity":["product"],"attributes":[1022]}]' == f
 
-    def testGridReset(self):
+    def test_grid_reset(self):
         attr = AttributeFilter([1022])
 
         assert 'attributes' == attr.getName()

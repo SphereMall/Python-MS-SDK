@@ -1,5 +1,8 @@
 import os
 import sys
+
+from ms_sdk.Exceptions.ConfigurationException import ConfigurationException
+
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from ms_sdk.Resourses import Resource
@@ -12,7 +15,8 @@ from tests.settings import *
 class TestClient:
 
     def testClientObjectCreatedNotConfigured(self):
-        client = Client()
+        with pytest.raises(ConfigurationException):
+            client = Client()
 
     def testClientObjectCreatedWithConfiguration(self):
         client = Client({

@@ -1,10 +1,19 @@
 from ms_sdk.Resourses.Documents.DocumentsResource import DocumentsResource
 from ms_sdk.Resourses.Grapher.CorrelationsResource import CorrelationsResource
 from ms_sdk.Resourses.Grapher.GridResource import GridResource
+from ms_sdk.Resourses.Prices.ProductPriceConfigurationsResource import ProductPriceConfigurationsResource
+from ms_sdk.Resourses.Shop.CurrenciesRateResource import CurrenciesRateResource
+from ms_sdk.Resourses.Shop.CurrenciesResource import CurrenciesResource
+from ms_sdk.Resourses.Shop.DeliveryPaymentsResource import DeliveryPaymentsResource
+from ms_sdk.Resourses.Shop.DeliveryProvidersResource import DeliveryProvidersResource
+from ms_sdk.Resourses.Shop.InvoicesResource import InvoicesResource
+from ms_sdk.Resourses.Shop.OrderItemsResource import OrderItemsResource
+from ms_sdk.Resourses.Shop.PaymentMethodsResource import PaymentMethodsResource
+from ms_sdk.Resourses.Shop.PaymentProvidersResource import PaymentProvidersResource
+from ms_sdk.Resourses.Shop.VatsResource import VatsResource
 from ms_sdk.Resourses.Users.CompaniesResource import CompaniesResource
 from ms_sdk.Resourses.Users.MessagesResource import MessagesResource
 from ms_sdk.Resourses.Users.UsersResource import UsersResource
-
 from ms_sdk.Resourses.Products import (
     ProductsResource,
     AttributeDisplayTypesResource,
@@ -23,7 +32,6 @@ from ms_sdk.Resourses.Products import (
     FunctionalNamesResource,
     ProductAttributeValuesResource)
 from ms_sdk.Resourses.Users.WishListItemsResource import WishListItemsResource
-
 
 class ServiceInjectorMixin:
 
@@ -99,3 +107,35 @@ class ServiceInjectorMixin:
 
     def wishListItems(self):
         return WishListItemsResource(self)
+
+    # Prices service
+    def productPriceConfigurations(self):
+        return ProductPriceConfigurationsResource(self)
+
+    # Shop service
+    def currencies(self):
+        return CurrenciesResource(self)
+
+    def currenciesRate(self):
+        return CurrenciesRateResource(self)
+
+    def invoices(self):
+        return InvoicesResource(self)
+
+    def orderItems(self):
+        return OrderItemsResource(self)
+
+    def deliveryProviders(self):
+        return DeliveryProvidersResource(self)
+
+    def paymentMethods(self):
+        return PaymentMethodsResource(self)
+
+    def deliveryPayments(self):
+        return DeliveryPaymentsResource(self)
+
+    def paymentProviders(self):
+        return PaymentProvidersResource(self)
+
+    def vats(self):
+        return VatsResource(self)

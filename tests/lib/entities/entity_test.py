@@ -9,7 +9,7 @@ from tests.settings import *
 
 
 class TestEntity:
-    def testCreateObject(self):
+    def test_create_object(self):
         entity = Entity
         isinstance(type(entity), Entity)
 

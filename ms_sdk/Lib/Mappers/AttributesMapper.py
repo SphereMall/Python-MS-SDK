@@ -11,15 +11,17 @@ class AttributesMapper(Mapper):
         attribute = Attribute(array)
         attribute.values = []
 
-        # try:
-        if array.get('attributeValues'):
-            mapper = AttributeValuesMapper()
+        try:
+            if array.get('attributeValues'):
+                mapper = AttributeValuesMapper()
 
-            if array['attributeValues'].get('id'):
-                attribute.values = mapper.createObject(array['attributeValues'])
-            else:
-                for item in array.get('attributeValues').items():
-                    attribute.values.append(mapper.createObject(item[1]))
+                if array['attributeValues'].get('id'):
+                    attribute.values = mapper.createObject(array['attributeValues'])
+                else:
+                    for item in array.get('attributeValues').items():
+                        attribute.values.append(mapper.createObject(item[1]))
+        except BaseException:
+            pass
 
         try:
             if array.get('attributeGroups'):

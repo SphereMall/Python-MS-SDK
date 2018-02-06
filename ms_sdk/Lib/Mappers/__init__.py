@@ -24,3 +24,13 @@ from . import OptionsMapper
 
 from . import DocumentsMapper
 from . import FacetAttributesMapper
+
+from . import CurrenciesMapper
+from . import CurrenciesRateMapper
+from . import ProductPriceConfigurationsMapper
+from . import OrderItemsMapper
+from . import InvoicesMapper
+from . import DeliveryProvidersMapper
+from . import VatMapper
+from . import PaymentMethodsMapper
+from . import PaymentProvidersMapper

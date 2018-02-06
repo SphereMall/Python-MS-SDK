@@ -1,6 +1,8 @@
 import json
 import sys
 import os
+
+from ms_sdk.Exceptions.EntityNotFoundException import EntityNotFoundException
 from ms_sdk.Lib.Makers.CountMaker import CountMaker
 from ms_sdk.Lib.Specifications.Basic.IsVisible import IsVisible
 
@@ -82,7 +84,7 @@ class Resource:
         response = self.handler.handle('PUT', data, id)
 
         if not response.getSuccess():
-            raise response.getErrorMessage()
+            raise EntityNotFoundException(response.getErrorMessage())
 
         return self.make(response, False)
 

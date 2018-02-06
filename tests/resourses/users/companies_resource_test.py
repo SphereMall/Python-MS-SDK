@@ -4,7 +4,7 @@ from tests.settings import setup_client
 
 class TestCompaniesResource:
 
-    def testServiceGetList(self):
+    def test_service_get_list(self):
         companies = setup_client().companies().all()
 
         try:

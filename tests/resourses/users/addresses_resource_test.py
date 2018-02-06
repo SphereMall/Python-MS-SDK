@@ -4,7 +4,7 @@ from tests.settings import setup_client
 
 class TestAddressesResource:
 
-    def testServiceGetList(self):
+    def test_service_get_list(self):
         addresses = setup_client().companies().all()
 
         try:
