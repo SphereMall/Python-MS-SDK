@@ -8,14 +8,14 @@ from tests.settings import *
 
 class TestUsersResource:
 
-    def testServiceGetList(self):
+    def test_service_get_list(self):
         users = setup_client().users()
         allUsers = users.all()
 
         for user in allUsers:
             isinstance(type(user), User)
 
-    def testSubscribeUserIfNotExistOrNotSubscriber(self):
+    def test_subscribe_user_if_not_exist_or_not_subscriber(self):
         email = 'test_unique@test.com'
 
         users = setup_client().users()
@@ -25,7 +25,7 @@ class TestUsersResource:
         assert '0' == user.isSubscriber
         # assert users.delete(user.id)
 
-    def testSubscribeUserIfExistAndSubscribe(self):
+    def test_subscribe_user_if_exist_and_subscribe(self):
         email = 'pytq33st@test.com'
 
         users = setup_client().users()
@@ -39,7 +39,7 @@ class TestUsersResource:
         assert users.subscribe(email) == None
         assert users.delete(user.id)
 
-    def testUnsubscribeUser(self):
+    def test_unsubscribe_user(self):
         email = 'qwpythonTe2st@test.com'
 
         users = setup_client().users()
@@ -52,7 +52,7 @@ class TestUsersResource:
         isinstance(type(users.unsubscribe(user.guid)), User)
         assert users.delete(user.id)
 
-    def testUnsubscribeUserIfNotExistOrNotSubscriber(self):
+    def test_unsubscribe_user_if_not_exist_or_not_subscriber(self):
         email = 'qwpythonTest@test.com'
 
         users = setup_client().users()
@@ -60,17 +60,18 @@ class TestUsersResource:
 
         assert user.unsubscribe('0') == None
 
-    def testUserWishList(self):
+    def test_user_wish_list(self):
         userId = 5
-        productId = 6329
+        productId = 6361
 
         allWishs = setup_client().users().getWishList(userId)
 
         for wish in allWishs:
             isinstance(type(wish), WishListItem)
 
-        setup_client().users().removeFromWishList(userId, productId)
         wishListItem = setup_client().users().addToWishList(userId, productId)
 
         assert userId == int(wishListItem.userId)
         assert productId == int(wishListItem.productId)
+
+        setup_client().users().removeFromWishList(userId, productId)

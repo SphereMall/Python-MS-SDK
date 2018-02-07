@@ -75,29 +75,36 @@ class TestProductPriceConfigurationsResource:
         with pytest.raises(MethodNotFoundException):
             priceConfiguration.update(1, [])
 
-    def test_not_available_product_price_configurations_create(self):
-        priceConfiguration = setup_client().productPriceConfigurations()
+    # def test_not_available_product_price_configurations_create(self):
+    #     priceConfiguration = setup_client().productPriceConfigurations()
+    #
+    #     with pytest.raises(MethodNotFoundException):
+    #         priceConfiguration.create([])
+    #
+    # def test_available_method_find_price(self):
+    #     priceConfigurationFilter = PriceConfigurationFilter()
+    #     priceConfigurationFilter.addProduct(PriceProduct(607, 1))
+    #
+    #     productPriceConfigurationsResource = self.getProductPriceConfMockedResource(priceConfigurationFilter)
+    #
+    #     productPriceConfigurations = productPriceConfigurationsResource.findPrice(priceConfigurationFilter)
+    #     assert 1 == productPriceConfigurations
+    #
+    #     productPriceConfiguration = ProductPriceConfigurationsMapper()\
+    #         .createObject(self.priceConfigurationResult['data'][0]['attributes'])
+    #     assert productPriceConfiguration == productPriceConfigurations[0]
 
-        with pytest.raises(MethodNotFoundException):
-            priceConfiguration.create([])
+    # def getProductPriceConfMockedResource(self, priceConfigurationFilter):
+        #
+        # with requests_mock.Mocker() as m:
+        #     m.post('http://test.com', text='resp')
+        #     assert requests.get('http://test.com').text == 'resp'
+        # requestHandler =
 
-    def test_available_method_find_price(self):
-        priceConfigurationFilter = PriceConfigurationFilter()
-        priceConfigurationFilter.addProduct(PriceProduct(607, 1))
-
-        productPriceConfigurationsResource = self.getProductPriceConfMockedResource(priceConfigurationFilter)
-
-        productPriceConfigurations = productPriceConfigurationsResource.findPrice(priceConfigurationFilter)
-        assert 1 == productPriceConfigurations
-
-        productPriceConfiguration = ProductPriceConfigurationsMapper()\
-            .createObject(self.priceConfigurationResult['data'][0]['attributes'])
-        assert productPriceConfiguration == productPriceConfigurations[0]
-
-    def getProductPriceConfMockedResource(self, priceConfigurationFilter):
-
-        with requests_mock.Mocker() as m:
-            m.post('http://test.com', text='resp')
-            assert requests.get('http://test.com').text == 'resp'
-
-
+        # productPriceConfigurationsResource = ProductPriceConfigurationsResource(
+        #     setup_client(),
+        #     'v1',
+        #     # requestHandler
+        # )
+        #
+        # return productPriceConfigurationsResource

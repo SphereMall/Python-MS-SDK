@@ -1,7 +1,4 @@
-import pytest
-
 from ms_sdk.Entities.Entity import Entity
-from ms_sdk.Entities.Product import Product
 from ms_sdk.Exceptions.MethodNotFoundException import MethodNotFoundException
 from ms_sdk.Resourses.Grapher.CorrelationsResource import CorrelationsResource
 from tests.settings import *
@@ -9,11 +6,11 @@ from tests.settings import *
 
 class TestCorrelationsResource:
 
-    def testIsCorrelationResource(self):
+    def test_is_correlation_resource(self):
         correlations = setup_client().correlations()
         isinstance(type(correlations), CorrelationsResource)
 
-    def testNotAvailableCorrelationsGet(self):
+    def test_not_available_correlations_get(self):
         correlations = setup_client().correlations()
         isinstance(type(MethodNotFoundException), Exception)
 
@@ -23,7 +20,7 @@ class TestCorrelationsResource:
         except:
             assert True
 
-    def testNotAvailableCorrelationsCreate(self):
+    def test_not_available_correlations_create(self):
         correlations = setup_client().correlations()
         isinstance(type(MethodNotFoundException), Exception)
 
@@ -33,7 +30,7 @@ class TestCorrelationsResource:
         except:
             assert True
 
-    def testNotAvailableCorrelationsUpdate(self):
+    def test_not_available_correlations_update(self):
         correlations = setup_client().correlations()
         isinstance(type(MethodNotFoundException), Exception)
 
@@ -43,7 +40,7 @@ class TestCorrelationsResource:
         except:
             assert True
 
-    def testNotAvailableCorrelationsDelete(self):
+    def test_not_available_correlations_delete(self):
         correlations = setup_client().correlations()
         isinstance(type(MethodNotFoundException), Exception)
 
@@ -53,7 +50,7 @@ class TestCorrelationsResource:
         except:
             assert True
 
-    def testIsProductCorrelations(self):
+    def test_is_product_correlations(self):
         correlations = setup_client().correlations().getById(4, 'Product')
 
         if not correlations:

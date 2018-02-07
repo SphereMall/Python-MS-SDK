@@ -14,11 +14,11 @@ from tests.settings import *
 
 class TestClient:
 
-    def testClientObjectCreatedNotConfigured(self):
+    def test_client_object_created_not_configured(self):
         with pytest.raises(ConfigurationException):
             client = Client()
 
-    def testClientObjectCreatedWithConfiguration(self):
+    def test_client_object_created_with_configuration(self):
         client = Client({
             'gatewayUrl': API_GATEWAY_URL,
             'clientId': API_CLIENT_ID,
@@ -26,7 +26,7 @@ class TestClient:
             'version': API_VERSION,
         })
 
-    def testClientCallService(self):
+    def test_client_call_service(self):
         client = Client({
             'gatewayUrl': API_GATEWAY_URL,
             'clientId': API_CLIENT_ID,
@@ -37,7 +37,7 @@ class TestClient:
         product_service = client.products()
         isinstance(product_service, ProductsResource)
 
-    def testSetVersion(self):
+    def test_set_version(self):
         client = Client({
             'gatewayUrl': API_GATEWAY_URL,
             'clientId': API_CLIENT_ID,

@@ -9,13 +9,13 @@ from tests.settings import *
 
 class TestGridResource:
 
-    def testServiceGetList(self):
+    def test_service_get_list(self):
         all = setup_client().grid().all()
 
         for item in all:
             isinstance(type(item), Entity)
 
-    def testGridFilter(self):
+    def test_grid_filter(self):
         gFilter = GridFilter()
         gFilter.elements([EntityFilter(['product'])])
 
@@ -33,14 +33,14 @@ class TestGridResource:
         for item in grid:
             isinstance(type(item), Document)
 
-    def testGridCount(self):
+    def test_grid_count(self):
         gFilter = GridFilter()
         gFilter.elements([EntityFilter(['product'])])
 
         amount = setup_client().grid().filter(gFilter).count()
         assert 0 < amount
 
-    def testServiceGetWithMeta(self):
+    def test_service_get_with_meta(self):
         all = setup_client().grid().withMeta().all()
         isinstance(type(all.getMeta()), Meta)
 
@@ -50,7 +50,7 @@ class TestGridResource:
         except:
             isinstance(type(all), Entity)
 
-    def testGridFacets(self):
+    def test_grid_facets(self):
         all = setup_client().grid().facets()
 
         for items in all:

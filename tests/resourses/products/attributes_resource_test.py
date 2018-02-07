@@ -1,12 +1,10 @@
-import os
-import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from tests.settings import setup_client
 from ms_sdk.Entities.Attribute import Attribute
 
 
 class TestAttributesResource:
-    def testServiceGetList(self):
+
+    def test_service_get_list(self):
         attributes = setup_client().attributes()
         attrList = attributes.all()
 
@@ -14,28 +12,28 @@ class TestAttributesResource:
             isinstance(type(item), Attribute)
 
     # TODO: Belongs deleted in the database
-    # def testAttributesBelongEntityAttributeGroupAttribute(self):
+    # def test_attributes_belong_entity_attribute_group_attribute(self):
     #     attributes = setup_client().attributes()
     #     attrList = attributes.belong('product', 2, 0)
     #
     #     for item in attrList:
     #         isinstance(type(item), Attribute)
     #
-    # def testAttributesBelongEntityAttributeGroup(self):
+    # def test_attributes_belong_entity_attribute_group(self):
     #     attributes = setup_client().attributes()
     #     attrList = attributes.belong('product', 2)
     #
     #     for item in attrList:
     #         isinstance(type(item), Attribute)
     #
-    # def testAttributesBelongEntity(self):
+    # def test_attributes_belong_entity(self):
     #     attributes = setup_client().attributes()
     #     attrList = attributes.belong('product')
     #
     #     for item in attrList:
     #         isinstance(type(item), Attribute)
 
-    def testAttributeHelpMethods(self):
+    def test_attribute_help_methods(self):
         products = setup_client().products().limit(3).full()
         attributes = products[0].attributes
 

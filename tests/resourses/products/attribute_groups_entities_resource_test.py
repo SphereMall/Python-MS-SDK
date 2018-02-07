@@ -1,14 +1,10 @@
-import os
-import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-
 from tests.settings import setup_client
 from ms_sdk.Entities.Entity import Entity
 
 
 class TestAttributeGroupsEntitiesResource:
 
-    def testServiceGetList(self):
+    def test_service_get_list(self):
         attributeGroupsEntities = setup_client().attributeGroupsEntities()
         attrList = attributeGroupsEntities.all()
         isinstance(type(attrList[0]), Entity)

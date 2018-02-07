@@ -14,7 +14,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 class TestBaseResourse:
     entryId = '6363'
 
-    def testGetList(self):
+    def test_get_list(self):
         products = setup_client().products()
         productsList = products.all()
 
@@ -23,18 +23,18 @@ class TestBaseResourse:
         for product in productsList:
             isinstance(type(product), Product)
 
-    def testGetSingle(self):
+    def test_get_single(self):
         products = setup_client().products()
         product = products.get(self.entryId)
         assert self.entryId == product.id
 
-    def testGetFirst(self):
+    def test_get_first(self):
         products = setup_client().products()
         product = products.first()
 
         isinstance(type(product), Product)
 
-    def testLimitOffsetAndAmountOfCalls(self):
+    def test_limit_offset_and_amount_of_calls(self):
         client = setup_client()
         products = client.products()
 
@@ -61,11 +61,11 @@ class TestBaseResourse:
         stat = client.getCallsStatistic()
         assert 4 == stat['amount']
 
-    def testSetIds(self):
+    def test_set_ids(self):
         products = setup_client().products().ids([1, 2, 4])
         assert [1, 2, 4] == products.getIds()
 
-    def testFields(self):
+    def test_fields(self):
         products1 = setup_client().products()
 
         product = products1.fields(['id', 'title']).get(6329)
@@ -82,14 +82,14 @@ class TestBaseResourse:
 
         assert ['id', 'price'] == products1.getFields()
 
-    def testGetFilter(self):
+    def test_get_filter(self):
         products = setup_client().products().filter({
             'title' : {FilterOperators.LIKE : 'test'}
         })
 
         assert Filter(filters = {'title' : {FilterOperators.LIKE : 'test'}}).getFilters() == products.getFilter()
 
-    def testMultipleFilter(self):
+    def test_multiple_filter(self):
         products = setup_client().products()
 
         product = products.get(self.entryId)
@@ -102,14 +102,14 @@ class TestBaseResourse:
 
         assert titleLike in productTest.title
 
-    def testFilterSpecification(self):
+    def test_filter_specification(self):
         products = setup_client().products()
 
         productTest = products.filter(IsVisible()).limit(1).all()
 
         assert str(1) == productTest.visible
 
-    def testFilterLike(self):
+    def test_filter_like(self):
         products = setup_client().products()
 
         product = products.get(self.entryId)
@@ -122,7 +122,7 @@ class TestBaseResourse:
 
         assert titleLike in productTest.title
 
-    def testFilterLikeLeft(self):
+    def test_filter_like_left(self):
         products = setup_client().products()
 
         product = products.get(self.entryId)
@@ -136,7 +136,7 @@ class TestBaseResourse:
         assert titleLike in productTest.title
 
 
-    def testFilterLikeRight(self):
+    def test_filter_like_right(self):
         products = setup_client().products()
 
         product = products.get(self.entryId)
@@ -149,7 +149,7 @@ class TestBaseResourse:
 
         assert titleLike in productTest.title
 
-    def testFilterEqual(self):
+    def test_filter_equal(self):
         products = setup_client().products()
 
         product = products.get(self.entryId)
@@ -162,7 +162,7 @@ class TestBaseResourse:
 
         assert titleLike == productTest.title
 
-    def testFilterNotEqual(self):
+    def test_filter_not_equal(self):
         products = setup_client().products()
 
         titleLike = 'test'
@@ -174,7 +174,7 @@ class TestBaseResourse:
 
         assert titleLike != productTest.title
 
-    def testFilterGreaterThan(self):
+    def test_filter_greater_than(self):
         products = setup_client().products()
 
         productTest = products \
@@ -184,7 +184,7 @@ class TestBaseResourse:
 
         assert int(productTest.price) > 60000
 
-    def testFilterLessThan(self):
+    def test_filter_less_than(self):
         products = setup_client().products()
 
         productTest = products \
@@ -194,7 +194,7 @@ class TestBaseResourse:
 
         assert int(productTest.price) < 60000
 
-    def testFilterGreaterOrEqualThan(self):
+    def test_filter_greater_or_equal_than(self):
         products = setup_client().products()
 
         productTest = products \
@@ -205,7 +205,7 @@ class TestBaseResourse:
 
         assert int(productTest.price) >= 60000
 
-    def testFilterLessOrEqualThan(self):
+    def test_filter_less_or_equal_than(self):
         products = setup_client().products()
 
         productTest = products \
@@ -215,7 +215,7 @@ class TestBaseResourse:
 
         assert int(productTest.price) <= 60000
 
-    def testIn(self):
+    def test_in(self):
         products = setup_client().products()
         productsList = products.limit(2).all()
 
@@ -226,12 +226,12 @@ class TestBaseResourse:
         assert productsList[0].title == productsTest[0].title
         assert productsList[1].title == productsTest[1].title
 
-    def testSort(self):
+    def test_sort(self):
         products1 = setup_client().products()
         productList1 = products1.limit(2).sort('title').all()
         assert ['title'] == products1.getSort()
 
-    def testCount(self):
+    def test_count(self):
         products1 = setup_client().products()
         productCount = products1.filter({'price' : {FilterOperators.GREATER_THAN_OR_EQUAL : 60000}})\
             .sort('title')\
@@ -243,12 +243,12 @@ class TestBaseResourse:
 
         assert productCount == len(productList)
 
-    def testCollectionAsArray(self):
+    def test_collection_as_array(self):
         products1 = setup_client().products();
         products = products1.limit(2).all()
         assert type(products) == list
 
-    # def testFilterIsNull(self):
+    # def test_filter_is_null(self):
     #     products = setup_client().products()
     #
     #     productTest = products \

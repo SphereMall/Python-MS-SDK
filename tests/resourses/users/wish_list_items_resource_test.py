@@ -4,7 +4,7 @@ from tests.settings import setup_client
 
 class TestWishListItemsResource:
 
-    def testServiceGetList(self):
+    def test_service_get_list(self):
         wishList = setup_client().wishListItems().all()
 
         try:

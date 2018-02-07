@@ -1,7 +1,3 @@
-import os
-import sys
-
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from tests.settings import setup_client
 from ms_sdk.Entities.Product import Product
 from ms_sdk.Lib.Collection import Collection
@@ -9,7 +5,7 @@ from ms_sdk.Lib.Collection import Collection
 
 class TestProductsResource:
 
-    def testServiceGetList(self):
+    def test_service_get_list(self):
         products = setup_client().products()
         productArray = products.all()
         productList = Collection(productArray)
@@ -28,12 +24,12 @@ class TestProductsResource:
         else:
             raise print('Count Error')
 
-    def testServiceGetListWithMeta(self):
+    def test_service_get_list_with_meta(self):
         products = setup_client().products()
         productCollection = products.withMeta().all()
         isinstance(type(productCollection), Collection)
 
-    def testProductFull(self):
+    def test_product_full(self):
         products = setup_client().products().limit(2).full()
         assert 2 == len(products)
 
@@ -47,7 +43,7 @@ class TestProductsResource:
         assert 'limoen-komkommer-fruitwater' in products.urlCode
         assert type(products) != list
 
-    def testAttributeHelpMethods(self):
+    def test_attribute_help_methods(self):
         product = setup_client().products().limit(1).full()
 
         attribute = product.getAttributeByCode('test-html')

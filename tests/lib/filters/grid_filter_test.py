@@ -1,6 +1,3 @@
-import os
-import sys
-import urllib.parse
 from ms_sdk.Lib.Filters.Grid.AttributeFilter import AttributeFilter
 from ms_sdk.Lib.Filters.Grid.BrandFilter import BrandFilter
 from ms_sdk.Lib.Filters.Grid.EntityFilter import EntityFilter
@@ -8,9 +5,6 @@ from ms_sdk.Lib.Filters.Grid.FactorFilter import FactorFilter
 from ms_sdk.Lib.Filters.Grid.FunctionalNameFilter import FunctionalNameFilter
 from ms_sdk.Lib.Filters.Grid.GridFilter import GridFilter
 from ms_sdk.Lib.Filters.Grid.PriceRangeFilter import PriceRangeFilter
-
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-from tests.settings import *
 
 
 class TestGridFilter:
