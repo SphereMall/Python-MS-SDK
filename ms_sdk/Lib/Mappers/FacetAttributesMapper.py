@@ -1,10 +1,14 @@
-from ms_sdk.Lib.Mappers.AttributesMapper import AttributesMapper
 from ms_sdk.Lib.Mappers.Mapper import Mapper
+from ms_sdk.Lib.Mappers.AttributesMapper import AttributesMapper
 
 
 class FacetAttributesMapper(Mapper):
 
     def doCreateObject(self, array):
+        """
+        :param dict array:
+        :return AttributesMapper:
+        """
         raw = []
 
         for item in array:

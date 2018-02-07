@@ -11,13 +11,14 @@ class GridFilter(Filter):
     def elements(self, elements):
         """
         :param elements: GridFilterElement[]
-        :return:
+        :rtype self:
         """
         self._elements[self._level] = {}
 
         for element in elements:
-            self._elements[self._level].update(
-                {element.getName(): element.getValues()})
+            self._elements[self._level].update({
+                element.getName(): element.getValues()
+            })
 
         self._level += 1
         return self
@@ -25,6 +26,7 @@ class GridFilter(Filter):
     def reset(self):
         """
         Reset local vars
+        :rtype self:
         """
         self._elements.clear()
         self._level = 0
@@ -32,13 +34,11 @@ class GridFilter(Filter):
 
     def setFilters(self, filters={}):
         """
-
-        :param filters: list
-        :return: self
+        :param list filters:
+        :rtype self:
         """
         for key, value in filters:
             self.addFilter(key, value)
-
         return self
 
     def addFilter(self, field, value, operator=None):
@@ -48,9 +48,11 @@ class GridFilter(Filter):
         :param value: the value of the attribute to operate on
 
         :param operator:
-        :return: self
+        :rtype self:
         """
-        self.filters.update({field: value})
+        self.filters.update({
+            field: value
+        })
         return self
 
     def getElements(self):
@@ -62,20 +64,23 @@ class GridFilter(Filter):
     def toString(self):
         """
         Convert the filter object to a string for a URL
-        :rtype: str
+        :rtype str:
         """
         setParams = self.__getStandardFilter()
 
         if self._elements:
             setParams['params'] = json.dumps(self._elements)
 
-        string = urllib.parse.unquote_plus(urllib.parse.urlencode(setParams)).replace(
-            '={"0": ', '=[').replace('"1": ', '').replace('}}', '}]').replace(' ', '')
-        return string
+        strFilter = urllib.parse.unquote_plus(urllib.parse.urlencode(setParams))\
+            .replace('={"0": ', '=[')\
+            .replace('"1": ', '')\
+            .replace('}}', '}]')\
+            .replace(' ', '')
+        return strFilter
 
     def __getStandardFilter(self):
         """
-        :return:
+        :rtype dict:
         """
         setParams = {}
 
@@ -85,5 +90,4 @@ class GridFilter(Filter):
                     setParams.update({key: ','.join(value)})
                 else:
                     setParams.update({key: value})
-
         return setParams

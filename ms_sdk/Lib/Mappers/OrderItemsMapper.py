@@ -1,11 +1,15 @@
-from ms_sdk.Entities.OrderItem import OrderItem
 from ms_sdk.Lib.Mappers.Mapper import Mapper
+from ms_sdk.Entities.OrderItem import OrderItem
 from ms_sdk.Lib.Mappers.ProductsMapper import ProductsMapper
 
 
 class OrderItemsMapper(Mapper):
 
     def doCreateObject(self, array):
+        """
+        :param dict array:
+        :return OrderItem:
+        """
         orderItem = OrderItem(array)
 
         try:

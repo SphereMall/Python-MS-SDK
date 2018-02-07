@@ -34,3 +34,4 @@ from . import DeliveryProvidersMapper
 from . import VatMapper
 from . import PaymentMethodsMapper
 from . import PaymentProvidersMapper
+from . import AddressesMapper

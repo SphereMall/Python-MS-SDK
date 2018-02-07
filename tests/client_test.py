@@ -1,15 +1,7 @@
-import os
-import sys
-
-from ms_sdk.Exceptions.ConfigurationException import ConfigurationException
-
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-
-from ms_sdk.Resourses import Resource
-from ms_sdk.Resourses.Products import ProductsResource
 import pytest
-from ms_sdk import Client
 from tests.settings import *
+from ms_sdk.Exceptions.ConfigurationException import ConfigurationException
+from ms_sdk.Resourses.Products import ProductsResource
 
 
 class TestClient:
@@ -48,7 +40,3 @@ class TestClient:
         assert 'testV' == client.getVersion()
         client.setVersion('newV')
         assert 'newV' == client.getVersion()
-
-
-# if __name__ == '__main__':
-#     unittest.main()

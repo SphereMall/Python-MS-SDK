@@ -1,10 +1,14 @@
-from .Mapper import Mapper
+from ms_sdk.Lib.Mappers.Mapper import Mapper
 from .AttributesMapper import AttributesMapper
 
 
 class ProductAttributeValuesMapper(Mapper):
 
     def doCreateObject(self, array):
+        """
+        :param dict array:
+        :return AttributesMapper:
+        """
         raw = {}
         i = 0
 

@@ -28,9 +28,7 @@ class Request:
         _async = self.client.getAsync()
         options = {}
 
-        # Set user authorization
-        # if not _async:
-        # options = self.setAuthorization()
+        # TODO: Set user authorization
 
         # Generate request URL
         url = self.client.getGatewayUrl() + '/' + self.client.getVersion() + \
@@ -74,5 +72,3 @@ class Request:
             return Response(requests.put(url, options, headers=headers))
         elif method.lower() == 'post':
             return Response(requests.post(url, options, headers=headers))
-    # def setAuthorization():
-        # authToken = AuthToken(self.client)

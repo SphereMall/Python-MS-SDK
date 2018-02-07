@@ -4,6 +4,10 @@ from ms_sdk.Lib.Specifications.Basic.FilterSpecification import FilterSpecificat
 class IsVisible(FilterSpecification):
 
     def isSatisfiedBy(self, entity):
+        """
+        :param Entity entity:
+        :rtype bool:
+        """
         if hasattr(entity, 'visible'):
             return bool(entity.visible)
 

@@ -28,7 +28,7 @@ class Resource:
         """
         BaseService initializer
         :param client:
-        :param version:
+        :param str version:
         """
         self.client = client
         self.version = version or client.getVersion()

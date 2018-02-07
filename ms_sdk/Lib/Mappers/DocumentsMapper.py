@@ -1,12 +1,16 @@
+from ms_sdk.Lib.Mappers.Mapper import Mapper
 from ms_sdk.Lib.Mappers.AttributesMapper import AttributesMapper
 from ms_sdk.Lib.Mappers.FunctionalNamesMapper import FunctionalNamesMapper
-from .Mapper import Mapper
 from ms_sdk.Entities.Document import Document
 
 
 class DocumentsMapper(Mapper):
 
     def doCreateObject(self, array):
+        """
+        :param dict array:
+        :return Document:
+        """
         document = Document(array)
 
         try:
@@ -31,6 +35,11 @@ class DocumentsMapper(Mapper):
         return document
 
     def getAttributeValues(self, attribute, attributeValues):
+        """
+        :param attribute:
+        :param attributeValues:
+        :rtype dict:
+        """
         values = {}
 
         for attributeValue in attributeValues.items():

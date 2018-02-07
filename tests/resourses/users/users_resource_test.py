@@ -62,7 +62,7 @@ class TestUsersResource:
 
     def test_user_wish_list(self):
         userId = 5
-        productId = 6361
+        productId = 6367
 
         allWishs = setup_client().users().getWishList(userId)
 
@@ -75,3 +75,4 @@ class TestUsersResource:
         assert productId == int(wishListItem.productId)
 
         setup_client().users().removeFromWishList(userId, productId)
+

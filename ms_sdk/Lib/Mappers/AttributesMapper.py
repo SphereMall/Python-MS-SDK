@@ -1,13 +1,16 @@
-from .Mapper import Mapper
-from .AttributeValuesMapper import AttributeValuesMapper
-from .AttributeGroupsMapper import AttributeGroupsMapper
+from ms_sdk.Lib.Mappers.Mapper import Mapper
+from ms_sdk.Lib.Mappers.AttributeValuesMapper import AttributeValuesMapper
+from ms_sdk.Lib.Mappers.AttributeGroupsMapper import AttributeGroupsMapper
 from ms_sdk.Entities.Attribute import Attribute
 
 
 class AttributesMapper(Mapper):
 
     def doCreateObject(self, array):
-
+        """
+        :param dict array:
+        :return Attribute:
+        """
         attribute = Attribute(array)
         attribute.values = []
 

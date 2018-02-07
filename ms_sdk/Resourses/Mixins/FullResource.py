@@ -1,17 +1,38 @@
+from ms_sdk.Exceptions.EntityNotFoundException import EntityNotFoundException
 
 
 class FullResourceMixin:
 
     def fullAll(self):
+        """
+        :return Entity[]:
+        """
         return self.full()
 
     def fullById(self, id):
-        pass
+        """
+        :param id:
+        :raises EntityNotFoundException:
+        :return Entity:
+        """
+        all = self.full(id)
+        return self.checkAndReturnResult(all)
 
     def fullByCode(self, code):
-        pass
+        """
+        :param code:
+        :raises EntityNotFoundException:
+        :return Entity:
+        """
+        all = self.full(code)
+        return self.checkAndReturnResult(code)
 
     def full(self, param=None):
+        """
+        Get list of entities
+        :param None|int|string param:
+        :return Entity|Entity[]:
+        """
         uriAppend = 'full'
         params = self.getQueryParams()
 
@@ -23,3 +44,13 @@ class FullResourceMixin:
 
         response = self.handler.handle('GET', False, uriAppend, params)
         return self.make(response)
+
+    def checkAndReturnResult(self, all):
+        """
+        :raises EntityNotFoundException:
+        :param all:
+        :return Entity:
+        """
+        if not all[0]:
+            raise EntityNotFoundException('Entity full with was not found!')
+        return all[0]

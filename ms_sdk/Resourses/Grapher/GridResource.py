@@ -12,6 +12,11 @@ class GridResource(Resource):
         return 'grid'
 
     def filter(self, gFilter):
+        """
+        Set filter to the resource selecting
+        :param dict|FilterSpecification|GridFilter gFilter:
+        :return self:
+        """
         if type(gFilter) == dict:
             gFilter = GridFilter(gFilter)
 
@@ -22,33 +27,63 @@ class GridResource(Resource):
         return self
 
     def all(self):
+        """
+        :return Entity{}|Collection:
+        """
         params = self.getQueryParams()
         response = self.handler.handle('GET', False, False, params)
         return self.make(response)
 
     def facets(self):
+        """
+        :return Entity{}|Collection:
+        """
         params = self.getQueryParams()
         response = self.handler.handle('GET', False, 'filter', params)
         return self.make(response, False, FacetsMaker())
 
     def count(self):
+        """
+        :rtype int:
+        """
         params = self.getQueryParams()
         response = self.handler.handle('GET', False, 'count', params)
         return self.make(response, False, CountMaker())
 
     def get(self, id):
+        """
+        :raises MethodNotFoundException:
+        :param id:
+        """
         raise MethodNotFoundException('Method get() can not be use with GRID')
 
     def update(self, id, data):
+        """
+        :raises MethodNotFoundException:
+        :param id:
+        :param data:
+        """
         raise MethodNotFoundException('Method update() can not be use with GRID')
 
     def create(self, data):
+        """
+        :raises MethodNotFoundException:
+        :param data:
+        """
         raise MethodNotFoundException('Method create() can not be use with GRID')
 
     def delete(self, id):
+        """
+        :raises MethodNotFoundException:
+        :param id:
+        """
         raise MethodNotFoundException('Method delete() can not be use with GRID')
 
     def getQueryParams(self):
+        """
+        TODO: move to GrapherResource
+        :return dict|mixed:
+        """
         params = Resource.getQueryParams(self)
 
         try:

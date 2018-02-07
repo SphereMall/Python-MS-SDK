@@ -1,14 +1,18 @@
-from .Mapper import Mapper
-from .ProductAttributeValuesMapper import ProductAttributeValuesMapper
+from ms_sdk.Lib.Mappers.Mapper import Mapper
+from ms_sdk.Entities.Product import Product
 from .ImagesMapper import ImagesMapper
 from .BrandsMapper import BrandsMapper
 from .FunctionalNamesMapper import FunctionalNamesMapper
-from ms_sdk.Entities.Product import Product
+from .ProductAttributeValuesMapper import ProductAttributeValuesMapper
 
 
 class ProductsMapper(Mapper):
 
     def doCreateObject(self, array):
+        """
+        :param dict array:
+        :return Product:
+        """
         product = Product(array)
 
         try:

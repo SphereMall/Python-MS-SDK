@@ -1,12 +1,12 @@
 from ms_sdk.Lib.Mappers.Mapper import Mapper
-from ms_sdk.Entities.Brand import Brand
+from ms_sdk.Entities.Address import Address
 
 
-class BrandsMapper(Mapper):
+class AddressesMapper(Mapper):
 
     def doCreateObject(self, array):
         """
         :param dict array:
-        :return Brand:
+        :return Address:
         """
-        return Brand(array)
+        return Address(array)

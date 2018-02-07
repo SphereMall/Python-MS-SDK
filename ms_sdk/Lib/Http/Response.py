@@ -3,6 +3,7 @@ from .Meta import Meta
 
 
 class Response:
+
     _meta = None
 
     def __init__(self, response):

@@ -29,14 +29,14 @@ class Filter(FilterOperators, FilterConditions):
     def getFilters(self):
         """
         Get the filter array
-        :return: dict
+        :rtype dict:
         """
         return self.filters
 
     def setFilters(self, filters: dict):
         """
         :param filters: dict
-        :return:
+        :rtype self:
         """
         self.filters = {}
 
@@ -50,7 +50,6 @@ class Filter(FilterOperators, FilterConditions):
                         (not value) and value != '0'):
                     continue
                 self.addFilter(field, value, operator)
-                
         return self
 
     def addFilter(self, field, value, operator):
@@ -59,7 +58,7 @@ class Filter(FilterOperators, FilterConditions):
         :param field: the field to filter on
         :param value: the value of the attribute to operate on
         :param operator: the filter operator (eq,ne etc)
-        :return: self
+        :rtype self:
         """
         if field and (value or value == '0'):
             if operator:
@@ -67,36 +66,25 @@ class Filter(FilterOperators, FilterConditions):
                 self.filters[field].update({operator : str(value)})
             else:
                 self.filters[field] = value
-
         return self
 
     def toString(self):
         """
         Convert the filter object to a string for a URL
         :rtype: str
-        :return:
+        :rtype str:
         """
-
         if len(self.filters) > 1:
-            filters = '[' + str(self.filters).replace("'", '"').replace(' :', ':').replace(': ', ':').replace(', ', '}, {') + ']'
+            filters = '[' + \
+                      str(self.filters)\
+                          .replace("'", '"')\
+                          .replace(' :', ':')\
+                          .replace(': ', ':')\
+                          .replace(', ', '}, {')\
+                      + ']'
         else:
-            filters = str(self.filters).replace("'", '"').replace(' :', ':').replace(': ', ':')
-
+            filters = str(self.filters)\
+                .replace("'", '"')\
+                .replace(' :', ':')\
+                .replace(': ', ':')
         return filters
-        #
-        # for field, rules in self.filters.items():
-        #     compounded = self.compound(field, rules)
-        #     if compounded:
-        #         setParams.update(compounded)
-        # print(json.dumps(setParams))
-        # return '{%s}' % (',&'.join(setParams))
-
-    # def compound(self, field, rules):
-    #     out = {}
-    #     if type(rules) == list:
-    #         for operator, value in rules.items:
-    #             out.update({field : {operator : value}})
-    #         return out
-    #     out = {field : rules}
-    #     return out
-

@@ -1,10 +1,14 @@
-from ms_sdk.Entities.Price.ProductPriceConfiguration import ProductPriceConfiguration
 from ms_sdk.Lib.Mappers.Mapper import Mapper
+from ms_sdk.Entities.Price.ProductPriceConfiguration import ProductPriceConfiguration
 
 
 class ProductPriceConfigurationsMapper(Mapper):
 
     def doCreateObject(self, array):
+        """
+        :param dict array:
+        :return ProductPriceConfiguration:
+        """
         productPriceConfiguration = ProductPriceConfiguration(array)
 
         try:

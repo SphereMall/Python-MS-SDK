@@ -8,11 +8,25 @@ from ms_sdk.Resourses import Resource
 
 
 class UsersResource(Resource):
+    """
+    Class UsersResource
+    :method User get(int id):
+    :method User first():
+    :method User[] all():
+    :method User update(id, data):
+    :method User create(data):
+    """
 
     def getURI(self):
         return 'users'
 
     def subscribe(self, email, name=''):
+        """
+        Subscribe user
+        :param email:
+        :param name:
+        :return User|None:
+        """
         userList = self.filter(IsUserEmail(email).asFilter()).limit(1).all()
 
         user = userList or User({
@@ -31,6 +45,11 @@ class UsersResource(Resource):
         return self.create(user)
 
     def unsubscribe(self, guid):
+        """
+        Unsubscribe user
+        :param guid:
+        :return User|None:
+        """
         userList = self.fields(['isSubscriber']).filter({'guid': {FilterOperators.EQUAL: guid}}).limit(1).all()
 
         try:
@@ -39,10 +58,19 @@ class UsersResource(Resource):
             return None
 
     def getWishList(self, userId):
+        """
+        :param userId:
+        :return WishListItem[]:
+        """
         response = self.handler.handle('GET', False, 'wishlist/' + str(userId))
         return self.make(response, True)
 
     def addToWishList(self, userId, productId):
+        """
+        :param userId:
+        :param productId:
+        :return WishListItem:
+        """
         return self.client.wishListItems().create({
             'userId': userId,
             'productId': productId,
@@ -50,6 +78,12 @@ class UsersResource(Resource):
         })
 
     def removeFromWishList(self, userId, productId):
+        """
+        :param userId:
+        :param productId:
+        :rtype bool:
+        :raises EntityNotFoundException:
+        """
         item = self.client.wishListItems().filter({
             'userId': {'e': userId},
             'productId': {'e': productId}

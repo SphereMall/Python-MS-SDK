@@ -9,7 +9,14 @@ class IsUserEmail(FilterSpecification, UserSpecification):
         self.email = email
 
     def asFilter(self):
+        """
+        :rtype dict:
+        """
         return {'email': {FilterOperators.EQUAL : self.email}}
 
     def isSatisfiedBy(self, user):
+        """
+        :param User user:
+        :rtype bool:
+        """
         return self.email == self.email
