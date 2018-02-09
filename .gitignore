@@ -1,6 +1,6 @@
 /myenv/
 *.pyc
-/settings.py
+/tests/settings.py
 /.vscode/
 /.cache/
 /.idea/
