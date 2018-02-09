@@ -2,8 +2,8 @@
 Official Python SDK for integrating with **SphereMall Product**.
 [Official documentation](https://spheremall.atlassian.net/wiki/spaces/MIC/pages)
 
-#### Version 0.5
-[Changelog 0.5](https://github.com/SphereMall/Python-MS-SDK/wiki/0.-SDK-Changelogs)
+#### Version 0.7
+[Changelog 0.7](https://github.com/SphereMall/Python-MS-SDK/wiki/0.-SDK-Changelogs)
 #### Supported microservices
 * Gateway 1.1.1
 * Products 1.1.0
@@ -21,11 +21,16 @@ myvenv\Scripts\activate
 ```
 pip3 install Python-MS-SDK
 ```
+For update to new version
+```
+pip3 install Python-MS-SDK==<version>
+```
 
 **Step: 3**: Import the package
 ```python
 from ms_sdk import Client
 ```
+
 ## Instantiating the SDK Client:
 
 Pass in the configuration to the client:
@@ -39,11 +44,13 @@ client = Client({
 ```
 
 ## Using the client with base Resources functionality
-* [Multiple Resources](https://github.com/SphereMall/PHP-MS-Client/wiki/1.-Multiple-Resources)
-* [Single Resource by ID](https://github.com/SphereMall/PHP-MS-Client/wiki/2.-Single-Resource-by-ID)
-* [Limiting and Offsetting Results](https://github.com/SphereMall/PHP-MS-Client/wiki/3.-Limiting-and-Offsetting-Results)
-* [Filtering result with specific fields](https://github.com/SphereMall/PHP-MS-Client/wiki/4.-Filtering-result-with-specific-fields)
-* [Sorting Results](https://github.com/SphereMall/PHP-MS-Client/wiki/5.-Sorting-Results)
-* [Counting Results](https://github.com/SphereMall/PHP-MS-Client/wiki/6.-Counting-Results)
-* [Product Resource](https://github.com/SphereMall/PHP-MS-Client/wiki/7.-Product-Resource)
-  * [Get full](https://github.com/SphereMall/PHP-MS-Client/wiki/7.1.-Get-full)
+* [Multiple Resources](https://github.com/SphereMall/Python-MS-SDK/wiki/1.-Multiple-Resources)
+* [Single Resource by ID](https://github.com/SphereMall/Python-MS-SDK/wiki/2.-Single-Resource-by-ID)
+* [Limiting and Offsetting Results](https://github.com/SphereMall/Python-MS-SDK/wiki/3.-Limiting-and-Offsetting-Results)
+* [Filtering result with specific fields](https://github.com/SphereMall/Python-MS-SDK/wiki/4.-Filtering-result-with-specific-fields)
+* [Sorting Results](https://github.com/SphereMall/Python-MS-SDK/wiki/5.-Sorting-Results)
+* [Counting Results](https://github.com/SphereMall/Python-MS-SDK/wiki/6.-Counting-Results)
+* [Product Resource](https://github.com/SphereMall/Python-MS-SDK/wiki/7.-Product-Resource)
+  * [Get full](https://github.com/SphereMall/Python-MS-SDK/wiki/7.2.-Full-Resource)
+  * [Get attributes](https://github.com/SphereMall/Python-MS-SDK/wiki/7.1.-Get-attributes)
+* [Documents Resource](https://github.com/SphereMall/Python-MS-SDK/wiki/8.-Documents-Resource)
