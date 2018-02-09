@@ -51,6 +51,10 @@ class FullResourceMixin:
         :param all:
         :return Entity:
         """
-        if not all[0]:
-            raise EntityNotFoundException('Entity full with was not found!')
-        return all[0]
+        try:
+            if all[0]:
+                return all[0]
+        except:
+            if not all:
+                EntityNotFoundException('Entity full with was not found!')
+        return all
