@@ -1,9 +1,8 @@
 import requests
 import urllib
 import urllib.parse
-
-from .AuthToken import AuthToken
-from .Response import Response
+from ms_sdk.Lib.Http.AuthToken import AuthToken
+from ms_sdk.Lib.Http.Response import Response
 
 
 class Request:

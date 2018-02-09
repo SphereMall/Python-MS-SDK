@@ -1,1 +1,3 @@
-from .сlient import Client
+__version__ = '0.1'
+
+from .ms_sdk import Client

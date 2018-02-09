@@ -1,4 +1,4 @@
-from pip._vendor.distlib.resources import Resource
+from ms_sdk.Resourses import Resource
 
 
 class AddressResource(Resource):

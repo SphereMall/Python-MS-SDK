@@ -1,5 +1,5 @@
-from .FilterOperators import FilterOperators
-from .FilterConditions import FilterConditions
+from ms_sdk.Lib.Filters.FilterOperators import FilterOperators
+from ms_sdk.Lib.Filters.FilterConditions import FilterConditions
 
 
 class Filter(FilterOperators, FilterConditions):

@@ -1,4 +1,4 @@
-from .Entity import Entity
+from ms_sdk.Entities.Entity import Entity
 
 
 class CatalogItem(Entity):

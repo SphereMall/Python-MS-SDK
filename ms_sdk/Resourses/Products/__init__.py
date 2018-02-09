@@ -1,21 +1,21 @@
-from .ProductsResource import *
-from .BrandsResource import *
+from ms_sdk.Resourses.Products.ProductsResource import *
+from ms_sdk.Resourses.Products.BrandsResource import *
 
-from .AttributesResource import *
-from .AttributeTypesResource import *
-from .AttributeValuesResource import *
-from .AttributeGroupsResource import *
-from .AttributeDisplayTypesResource import *
-from .AttributeGroupsEntitiesResource import *
+from ms_sdk.Resourses.Products.AttributesResource import *
+from ms_sdk.Resourses.Products.AttributeTypesResource import *
+from ms_sdk.Resourses.Products.AttributeValuesResource import *
+from ms_sdk.Resourses.Products.AttributeGroupsResource import *
+from ms_sdk.Resourses.Products.AttributeDisplayTypesResource import *
+from ms_sdk.Resourses.Products.AttributeGroupsEntitiesResource import *
 
-from .EntitiesResource import *
-from .EntityAttributesResource import *
+from ms_sdk.Resourses.Products.EntitiesResource import *
+from ms_sdk.Resourses.Products.EntityAttributesResource import *
 
-from .CatalogItemsResource import *
+from ms_sdk.Resourses.Products.CatalogItemsResource import *
 
-from .MediaResource import *
-from .MediaTypesResource import *
+from ms_sdk.Resourses.Products.MediaResource import *
+from ms_sdk.Resourses.Products.MediaTypesResource import *
 
-from .OptionsResource import *
-from .FunctionalNamesResource import FunctionalNamesResource
-from .ProductAttributeValuesResource import ProductAttributeValuesResource
+from ms_sdk.Resourses.Products.OptionsResource import *
+from ms_sdk.Resourses.Products.FunctionalNamesResource import FunctionalNamesResource
+from ms_sdk.Resourses.Products.ProductAttributeValuesResource import ProductAttributeValuesResource

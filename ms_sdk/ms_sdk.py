@@ -1,5 +1,5 @@
 from ms_sdk.Exceptions.ConfigurationException import ConfigurationException
-from .Lib.ServiceInjector import ServiceInjectorMixin
+from ms_sdk.Lib.ServiceInjector import ServiceInjectorMixin
 
 
 class Client(ServiceInjectorMixin):

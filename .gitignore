@@ -5,3 +5,7 @@
 /.cache/
 /.idea/
 settings.py
+.pypirc
+*.pypirc
+Python_MS_SDK.egg-info/
+dist/

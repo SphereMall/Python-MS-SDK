@@ -1,5 +1,5 @@
 import json
-from .Meta import Meta
+from ms_sdk.Lib.Http.Meta import Meta
 
 
 class Response:

@@ -1,5 +1,5 @@
 from ms_sdk.Lib.Mappers.Mapper import Mapper
-from .AttributesMapper import AttributesMapper
+from ms_sdk.Lib.Mappers.AttributesMapper import AttributesMapper
 
 
 class ProductAttributeValuesMapper(Mapper):

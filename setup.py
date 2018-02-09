@@ -3,9 +3,13 @@ from os.path import join, dirname
 
 setup(
     name='Python-MS-SDK',
-    version='1.0',
+    version='0.1',
     packages=find_packages(),
+    description='Repo: https://github.com/SphereMall/Python-MS-SDK',
     author='Kravets Roman',
     author_email='r.kravets@spheremall.com',
-    long_description=open(join(dirname(__file__), 'README.md')).read(),
+    install_requires=[
+        'requests==2.18.4'
+    ],
+    url='https://github.com/SphereMall/Python-MS-SDK/wiki',
 )

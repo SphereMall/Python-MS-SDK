@@ -1,12 +1,7 @@
 import json
-import sys
-import os
-
 from ms_sdk.Exceptions.EntityNotFoundException import EntityNotFoundException
 from ms_sdk.Lib.Makers.CountMaker import CountMaker
 from ms_sdk.Lib.Specifications.Basic.IsVisible import IsVisible
-
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from ms_sdk.Lib.Http.Request import Request
 from ms_sdk.Lib.Http.Response import Response
 from ms_sdk.Lib.Makers.ObjectMaker import ObjectMaker
