@@ -59,8 +59,7 @@ class InteractsWithAttributesMixin:
             return None
 
         for attribute in self.attributes:
-
-            if eval('attribute.' + fieldName) == value:
+            if str(eval('attribute.' + fieldName)) == str(value):
                 return attribute
 
         return None
@@ -73,11 +72,11 @@ class InteractsWithAttributesMixin:
         """
         attributes = []
 
-        if not self.attributes or not self.attributes:
+        if not self.attributes:
             return attributes
 
         for attribute in self.attributes:
-            if (eval('attribute.' + fieldName) in value) or (eval('attribute.' + fieldName) == value):
+            if (str(eval('attribute.' + fieldName)) in str(value)) or (str(eval('attribute.' + fieldName)) == str(value)):
                 attributes.append(attribute)
 
         return attributes

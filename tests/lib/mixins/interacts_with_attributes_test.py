@@ -1,5 +1,6 @@
 from ms_sdk.Entities.Attribute import Attribute
 from ms_sdk.Entities.Product import Product
+from tests.settings import setup_client
 
 
 class TestInteractsWithAttributes:
