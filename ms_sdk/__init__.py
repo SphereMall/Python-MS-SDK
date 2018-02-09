@@ -1,3 +1,3 @@
-__version__ = '0.2'
+__version__ = '0.5'
 
-import ms_sdk.Client
+from ms_sdk.ms_sdk import Client
