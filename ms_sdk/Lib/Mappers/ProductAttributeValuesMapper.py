@@ -19,7 +19,6 @@ class ProductAttributeValuesMapper(Mapper):
             pass
 
         for item in array.values():
-
             i += 1
             raw.update({str(i): {
                 item.get('attributeId'): {
@@ -30,6 +29,9 @@ class ProductAttributeValuesMapper(Mapper):
                     'description': item.get('description'),
                     'attributeGroupId': item.get('attributeGroupId'),
                     'cssClass': item.get('cssClass'),
+
+                    'attributeId': item.get('attributeId'),
+                    'productId': item.get('productId'),
 
                     'attributeValues': {
                         'id': item.get('id'),

@@ -15,3 +15,6 @@ class Attribute(Entity):
 
     values = None
     group = None
+
+    attributeId = None
+    productId = None
