@@ -157,10 +157,14 @@ class Resource:
         :param list|Filter|FilterSpecification _filter:
         :return: self
         """
-        if type(_filter) == IsVisible:
-            self._filter = Filter(_filter.asFilter())
-        else:
-            self._filter = Filter(_filter)
+        try:
+            if len(_filter._elements) >= 1:
+                self._filter = Filter(_filter._elements)
+        except:
+            if type(_filter) == IsVisible:
+                self._filter = Filter(_filter.asFilter())
+            else:
+                self._filter = Filter(_filter)
 
         return self
 
