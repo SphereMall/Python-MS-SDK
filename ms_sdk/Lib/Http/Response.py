@@ -23,8 +23,11 @@ class Response:
             self.version = contents['ver']
             self.included = contents['included'] or None
 
-            if not contents['meta']:
-                self._meta = Meta(contents['meta'].values())
+            try:
+                if contents['meta']:
+                    self._meta = Meta(contents['meta'].values())
+            except:
+                pass
 
         except Exception as ex:
             self.success = False

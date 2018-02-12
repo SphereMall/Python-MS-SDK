@@ -12,7 +12,14 @@ class ProductAttributeValuesMapper(Mapper):
         raw = {}
         i = 0
 
+        try:
+            if type(list(array.values())[0]) == str:
+                array = {'0': array}
+        except:
+            pass
+
         for item in array.values():
+
             i += 1
             raw.update({str(i): {
                 item.get('attributeId'): {
@@ -37,6 +44,10 @@ class ProductAttributeValuesMapper(Mapper):
         result = []
 
         for item in raw.values():
-            result.append(mapper.createObject(item.get(list(item)[0])))
+
+            if i == 1:
+                result = mapper.createObject(item.get(list(item)[0]))
+            else:
+                result.append(mapper.createObject(item.get(list(item)[0])))
 
         return result

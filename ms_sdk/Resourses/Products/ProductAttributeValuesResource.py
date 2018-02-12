@@ -12,4 +12,4 @@ class ProductAttributeValuesResource(Resource):
     """
 
     def getURI(self):
-        return 'brands'
+        return 'productattributevalues'
