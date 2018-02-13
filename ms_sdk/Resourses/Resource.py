@@ -275,7 +275,6 @@ class Resource:
         if self._filter:
             params['where'] = self._filter.toString()
         if self._in:
-            print('aaaaa')
             params['in'] = json.dumps(self._in)
 
         return params
