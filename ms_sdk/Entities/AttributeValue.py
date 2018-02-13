@@ -9,3 +9,4 @@ class AttributeValue(Entity):
     cssClass = None
     image = None
     orderNumber = None
+    unitOfMeasureId = None

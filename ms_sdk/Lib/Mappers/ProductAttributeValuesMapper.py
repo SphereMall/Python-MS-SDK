@@ -37,7 +37,9 @@ class ProductAttributeValuesMapper(Mapper):
                         'id': item.get('id'),
                         'value': item.get('value'),
                         'title': item.get('valueTitle'),
-                        'cssClass': item.get('valueCssClass')
+                        'image': item.get('image'),
+                        'cssClass': item.get('valueCssClass'),
+                        'unitOfMeasureId': item.get('unitOfMeasureId')
                     }
                 }
             }})
