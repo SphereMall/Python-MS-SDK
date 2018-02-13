@@ -11,7 +11,7 @@ Official Python SDK for integrating with **SphereMall Product**.
 * Grapher 1.0.0
 
 ## Installation
-**Step 1**. Create virtual environment:
+**Step 1 (Not necessary)**. Create virtual environment:
 ```
 python3 -m venv myvenv
 myvenv\Scripts\activate
