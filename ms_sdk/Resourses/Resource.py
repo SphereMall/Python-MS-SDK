@@ -16,7 +16,7 @@ class Resource:
     _limit = 10
     _sort = []
     _ids = []
-    _in = []
+    _in = {}
     _meta = False
 
     def __init__(self, client: object, version: str = '') -> object:
@@ -105,13 +105,13 @@ class Resource:
         """
         return self._ids
 
-    def setIn(self, field, values):
+    def byIn(self, field, values):
         """
         :param field:
         :param values:
         :return: self
         """
-        self.__in = {field : values}
+        self._in = {field : values}
         return self
 
     def sort(self, field) -> object:
@@ -275,6 +275,7 @@ class Resource:
         if self._filter:
             params['where'] = self._filter.toString()
         if self._in:
+            print('aaaaa')
             params['in'] = json.dumps(self._in)
 
         return params
@@ -289,4 +290,4 @@ class Resource:
         self._limit = 10
         self._sort = []
         self._ids = {}
-        self._in = []
+        self._in = {}

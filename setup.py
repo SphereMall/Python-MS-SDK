@@ -3,7 +3,7 @@ from os.path import join, dirname
 
 setup(
     name='Python-MS-SDK',
-    version='0.8',
+    version='0.8.1',
     packages=find_packages(),
     description='Repo: https://github.com/SphereMall/Python-MS-SDK',
     author='Kravets Roman',

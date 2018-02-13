@@ -1,7 +1,8 @@
-__version__ = '0.8'
+__version__ = '0.8.1'
 
 from ms_sdk.ms_sdk import Client
 from ms_sdk.Lib.Filters.FilterOperators import FilterOperators
+from ms_sdk.Lib.Filters.FilterConditions import FilterConditions
 
 # Grid filters
 from ms_sdk.Lib.Filters.Grid.AttributeFilter import AttributeFilter

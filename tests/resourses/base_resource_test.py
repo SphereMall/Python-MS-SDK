@@ -219,7 +219,7 @@ class TestBaseResourse:
         products = setup_client().products()
         productsList = products.limit(2).all()
 
-        productsTest = products.setIn('title', [productsList[0].title, productsList[1].title]).all()
+        productsTest = products.byIn('title', [productsList[0].title, productsList[1].title]).all()
 
         assert len(productsTest) == 2
 
