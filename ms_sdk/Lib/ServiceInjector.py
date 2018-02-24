@@ -30,7 +30,8 @@ from ms_sdk.Resourses.Products import (
     OptionsResource,
     BrandsResource,
     FunctionalNamesResource,
-    ProductAttributeValuesResource)
+    ProductAttributeValuesResource,
+    EntityAttributeValuesResource)
 from ms_sdk.Resourses.Users.WishListItemsResource import WishListItemsResource
 
 class ServiceInjectorMixin:
@@ -119,6 +120,13 @@ class ServiceInjectorMixin:
         :return EntityAttributesResource:
         """
         return EntityAttributesResource(self)
+
+    def entityAttributeValues(self):
+        """
+        Client self
+        :return EntityAttributeValuesResource:
+        """
+        return EntityAttributeValuesResource(self)
 
     def media(self):
         """

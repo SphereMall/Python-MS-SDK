@@ -10,6 +10,7 @@ from ms_sdk.Resourses.Products.AttributeGroupsEntitiesResource import *
 
 from ms_sdk.Resourses.Products.EntitiesResource import *
 from ms_sdk.Resourses.Products.EntityAttributesResource import *
+from ms_sdk.Resourses.Products.EntityAttributeValuesResource import *
 
 from ms_sdk.Resourses.Products.CatalogItemsResource import *
 

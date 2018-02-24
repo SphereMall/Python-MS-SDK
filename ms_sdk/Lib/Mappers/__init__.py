@@ -10,6 +10,7 @@ from ms_sdk.Lib.Mappers import AttributeGroupsEntitiesMapper
 
 from ms_sdk.Lib.Mappers import BrandsMapper
 from ms_sdk.Lib.Mappers import EntitiesMapper
+from ms_sdk.Lib.Mappers import EntityAttributeValuesMapper
 from ms_sdk.Lib.Mappers import CatalogItemsMapper
 from ms_sdk.Lib.Mappers import FunctionalNamesMapper
 

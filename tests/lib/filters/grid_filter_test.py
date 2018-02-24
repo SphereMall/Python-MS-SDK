@@ -40,13 +40,15 @@ class TestGridFilter:
         gfilter = GridFilter()
 
         f = gfilter.elements([attr]).elements([fn]).toString()
-        assert 'params=[{"attributes":[1,2,3]},{"functionalNames":[1,2]}]' == f
+        assert '{"attributes":[1,2,3]}' in f \
+               and '{"functionalNames":[1,2]}' in f
 
         gfilter = GridFilter()
         gfilter.reset()
         fl = gfilter.elements([attr, fn]).toString()
 
-        assert 'params=[{"attributes":[1,2,3],"functionalNames":[1,2]}]' == fl
+        assert '"attributes":[1,2,3]' in fl \
+               and '"functionalNames":[1,2]' in fl
 
         attrs = AttributeFilter([1022])
         gfilter = GridFilter()
@@ -65,7 +67,9 @@ class TestGridFilter:
         gfilter = GridFilter()
         fl = gfilter.elements([attrs, ent]).elements([fn]).toString()
 
-        assert 'params=[{"attributes":[1022],"entity":["product"]},{"functionalNames":[5]}]' == fl
+        assert '"attributes":[1022]' in fl \
+               and '"entity":["product"]' in fl \
+               and '{"functionalNames":[5]}' in fl
 
     def test_grid_filter_params(self):
         attr1 = AttributeFilter([1, 2, 3])
@@ -87,7 +91,9 @@ class TestGridFilter:
         gfilter = GridFilter()
         f = gfilter.elements([attr1]).elements([fn, attr2]).toString()
 
-        assert 'params=[{"attributes":[1,5]},{"functionalNames":[1,2],"attributes":[3,2,4]}]' == f
+        assert 'params=[{"attributes":[1,5]},' in f \
+               and '"functionalNames":[1,2]' in f \
+               and '"attributes":[3,2,4]' in f
 
     def test_grid_filter_with_price(self):
         attr = AttributeFilter([1022])
@@ -114,7 +120,10 @@ class TestGridFilter:
         gfilter.reset()
         f = gfilter.elements([attr, fn, br, price]).toString()
 
-        assert 'params=[{"attributes":[1022],"functionalNames":[5],"brands":[1],"priceRange":[10000,50000]}]' == f
+        assert '"attributes":[1022]' in f \
+               and '"priceRange":[10000,50000]' in f \
+               and '"brands":[1]' in f \
+               and '"functionalNames":[5]' in f
 
     def test_grid_filter_with_factors(self):
         attr = AttributeFilter([1022])
@@ -136,7 +145,9 @@ class TestGridFilter:
         gfilter.reset()
         f = gfilter.elements([attr]).elements([fn, factor]).toString()
 
-        assert 'params=[{"attributes":[1022]},{"functionalNames":[5],"factors":[1]}]' == f
+        assert '"functionalNames":[5]' in f \
+               and '"factors":[1]' in f \
+               and 'params=[{"attributes":[1022]},' in f
 
     def test_grid_filter_with_attribute_and_functional_name(self):
         attr = AttributeFilter([1022])
@@ -158,7 +169,8 @@ class TestGridFilter:
         gfilter.reset()
         f = gfilter.elements([entity, attr]).toString()
 
-        assert 'params=[{"entity":["product"],"attributes":[1022]}]' == f
+        assert '"entity":["product"]' in f \
+               and '"attributes":[1022]' in f
 
     def test_grid_reset(self):
         attr = AttributeFilter([1022])
