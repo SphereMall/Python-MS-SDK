@@ -1,4 +1,4 @@
-__version__ = '0.8.5'
+__version__ = '0.8.6'
 
 from ms_sdk.ms_sdk import Client
 from ms_sdk.Lib.Filters.FilterOperators import FilterOperators
