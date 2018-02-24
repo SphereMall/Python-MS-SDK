@@ -23,7 +23,7 @@ pip3 install Python-MS-SDK
 ```
 For update to new version
 ```
-pip3 install Python-MS-SDK==<version>
+pip3 install --upgrade Python-MS-SDK
 ```
 
 **Step: 3**: Import the package
