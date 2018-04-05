@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Python-MS-SDK',
-    version='0.8.6',
+    version='0.8.7',
     packages=find_packages(),
     description='Repo: https://github.com/SphereMall/Python-MS-SDK',
     author='Kravets Roman',
