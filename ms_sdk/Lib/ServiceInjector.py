@@ -1,38 +1,9 @@
-from ms_sdk.Resourses.Documents.DocumentsResource import DocumentsResource
-from ms_sdk.Resourses.Grapher.CorrelationsResource import CorrelationsResource
-from ms_sdk.Resourses.Grapher.GridResource import GridResource
+from ms_sdk.Resourses.Shop import *
+from ms_sdk.Resourses.Users import *
+from ms_sdk.Resourses.Grapher import *
+from ms_sdk.Resourses.Products import *
 from ms_sdk.Resourses.Prices.ProductPriceConfigurationsResource import ProductPriceConfigurationsResource
-from ms_sdk.Resourses.Shop.CurrenciesRateResource import CurrenciesRateResource
-from ms_sdk.Resourses.Shop.CurrenciesResource import CurrenciesResource
-from ms_sdk.Resourses.Shop.DeliveryPaymentsResource import DeliveryPaymentsResource
-from ms_sdk.Resourses.Shop.DeliveryProvidersResource import DeliveryProvidersResource
-from ms_sdk.Resourses.Shop.InvoicesResource import InvoicesResource
-from ms_sdk.Resourses.Shop.OrderItemsResource import OrderItemsResource
-from ms_sdk.Resourses.Shop.PaymentMethodsResource import PaymentMethodsResource
-from ms_sdk.Resourses.Shop.PaymentProvidersResource import PaymentProvidersResource
-from ms_sdk.Resourses.Shop.VatsResource import VatsResource
-from ms_sdk.Resourses.Users.CompaniesResource import CompaniesResource
-from ms_sdk.Resourses.Users.MessagesResource import MessagesResource
-from ms_sdk.Resourses.Users.UsersResource import UsersResource
-from ms_sdk.Resourses.Products import (
-    ProductsResource,
-    AttributeDisplayTypesResource,
-    AttributeGroupsEntitiesResource,
-    AttributeGroupsResource,
-    AttributesResource,
-    CatalogItemsResource,
-    EntitiesResource,
-    MediaResource,
-    EntityAttributesResource,
-    AttributeTypesResource,
-    AttributeValuesResource,
-    MediaTypesResource,
-    OptionsResource,
-    BrandsResource,
-    FunctionalNamesResource,
-    ProductAttributeValuesResource,
-    EntityAttributeValuesResource)
-from ms_sdk.Resourses.Users.WishListItemsResource import WishListItemsResource
+from ms_sdk.Resourses.Documents.DocumentsResource import DocumentsResource
 
 class ServiceInjectorMixin:
 

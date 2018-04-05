@@ -1,7 +1,6 @@
 import requests
 import urllib
 import urllib.parse
-from ms_sdk.Lib.Http.AuthToken import AuthToken
 from ms_sdk.Lib.Http.Response import Response
 
 

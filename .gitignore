@@ -9,3 +9,4 @@ settings.py
 *.pypirc
 Python_MS_SDK.egg-info/
 dist/
+.pytest_cache/
