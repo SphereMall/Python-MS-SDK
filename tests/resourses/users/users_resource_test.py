@@ -62,7 +62,7 @@ class TestUsersResource:
 
     def test_user_wish_list(self):
         userId = 5
-        productId = 6367
+        productId = get_prod().id
 
         allWishs = setup_client().users().getWishList(userId)
 

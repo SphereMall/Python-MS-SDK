@@ -12,7 +12,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 
 class TestBaseResourse:
-    entryId = '6363'
 
     def test_get_list(self):
         client = setup_client()
@@ -24,13 +23,12 @@ class TestBaseResourse:
 
     def test_get_single(self):
         products = setup_client().products()
-        product = products.get(self.entryId)
-        assert self.entryId == product.id
+        product = products.get(get_prod().id)
+        assert get_prod().id == product.id
 
     def test_get_first(self):
         products = setup_client().products()
         product = products.first()
-
         isinstance(type(product), Product)
 
     def test_limit_offset_and_amount_of_calls(self):
@@ -67,14 +65,14 @@ class TestBaseResourse:
     def test_fields(self):
         products1 = setup_client().products()
 
-        product = products1.fields(['id', 'title']).get(6329)
+        product = products1.fields(['id', 'title']).get(get_prod().id)
         assert product.id is not None
         assert product.title is not None
         assert product.price is None
 
         assert ['id', 'title'] == products1.getFields()
 
-        product2 = products1.fields(['id', 'price']).get(6329)
+        product2 = products1.fields(['id', 'price']).get(get_prod().id)
         assert product2.id is not None
         assert product2.title is None
         assert product2.price is not None
@@ -91,7 +89,7 @@ class TestBaseResourse:
     def test_multiple_filter(self):
         products = setup_client().products()
 
-        product = products.get(self.entryId)
+        product = products.get(get_prod().id)
         titleLike = product.title[2:5]
 
         productTest = products.filter({
@@ -111,7 +109,7 @@ class TestBaseResourse:
     def test_filter_like(self):
         products = setup_client().products()
 
-        product = products.get(self.entryId)
+        product = products.get(get_prod().id)
         titleLike = product.title[2:5]
 
         productTest = products\
@@ -124,7 +122,7 @@ class TestBaseResourse:
     def test_filter_like_left(self):
         products = setup_client().products()
 
-        product = products.get(self.entryId)
+        product = products.get(get_prod().id)
         titleLike = product.title[2: len(product.title)]
 
         productTest = products\
@@ -138,7 +136,7 @@ class TestBaseResourse:
     def test_filter_like_right(self):
         products = setup_client().products()
 
-        product = products.get(self.entryId)
+        product = products.get(get_prod().id)
         titleLike = product.title[0:5]
 
         productTest = products \
@@ -151,7 +149,7 @@ class TestBaseResourse:
     def test_filter_equal(self):
         products = setup_client().products()
 
-        product = products.get(self.entryId)
+        product = products.get(get_prod().id)
         titleLike = product.title
 
         productTest = products \
@@ -243,7 +241,7 @@ class TestBaseResourse:
         assert productCount == len(productList)
 
     def test_collection_as_array(self):
-        products1 = setup_client().products();
+        products1 = setup_client().products()
         products = products1.limit(2).all()
         assert type(products) == list
 
