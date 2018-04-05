@@ -5,10 +5,10 @@ Official Python SDK for integrating with **SphereMall Product**.
 #### Version 0.8.7
 [Changelog 0.8.7](https://github.com/SphereMall/Python-MS-SDK/wiki/0.-SDK-Changelogs)
 #### Supported microservices
-* Gateway 1.1.1
+* Gateway 1.*
 * Products 2.*
-* Users 1.0.0
-* Grapher 1.0.0
+* Users 1.*
+* Grapher 1.*
 
 ## Installation
 **Step 1 (Not necessary)**. Create virtual environment:
