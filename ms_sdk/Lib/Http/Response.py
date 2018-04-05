@@ -18,10 +18,17 @@ class Response:
 
         try:
             self.data = contents['data']
-            self.success = contents['success']
-            self.errors = contents['error'] or None
+
+            if contents.get('status'):
+                if contents.get('status') == 'OK':
+                    self.success = True
+                else:
+                    self.success = None
+            else:
+                self.success = contents['success']
+            self.errors = contents.get('error') or None
             self.version = contents['ver']
-            self.included = contents['included'] or None
+            self.included = contents.get('included')
 
             try:
                 if contents['meta']:

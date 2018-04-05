@@ -15,9 +15,8 @@ class TestBaseResourse:
     entryId = '6363'
 
     def test_get_list(self):
-        products = setup_client().products()
-        productsList = products.all()
-
+        client = setup_client()
+        productsList = client.products().all()
         assert 10 == len(productsList)
 
         for product in productsList:
