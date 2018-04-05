@@ -2,11 +2,11 @@
 Official Python SDK for integrating with **SphereMall Product**.
 [Official documentation](https://spheremall.atlassian.net/wiki/spaces/MIC/pages)
 
-#### Version 0.8.6
-[Changelog 0.8.6](https://github.com/SphereMall/Python-MS-SDK/wiki/0.-SDK-Changelogs)
+#### Version 0.8.7
+[Changelog 0.8.7](https://github.com/SphereMall/Python-MS-SDK/wiki/0.-SDK-Changelogs)
 #### Supported microservices
 * Gateway 1.1.1
-* Products 1.1.0
+* Products 2.*
 * Users 1.0.0
 * Grapher 1.0.0
 
