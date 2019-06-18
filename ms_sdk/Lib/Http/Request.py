@@ -41,7 +41,7 @@ class Request:
             url += '/' + str(uriAppend)
 
         # Add query params
-        if queryParams:
+        if queryParams and method.lower() != 'post':
             url += '?' + \
                 urllib.parse.unquote(urllib.parse.urlencode(queryParams))
 
@@ -50,7 +50,7 @@ class Request:
                 options['body'] = urllib.parse.urlencode(queryParams)
             elif method.lower() == 'post':
                 options['content-type'] = 'application/x-www-form-urlencoded'
-                options['form_params'] = body
+                # options['form_params'] = body
             elif method.lower() == 'delete':
                 options['body'] = urllib.parse.urlencode(queryParams)
 
@@ -69,4 +69,4 @@ class Request:
         elif method.lower() == 'put':
             return Response(requests.put(url, options, headers=headers))
         elif method.lower() == 'post':
-            return Response(requests.post(url, options, headers=headers))
+            return Response(requests.post(url, data=queryParams, headers=headers))

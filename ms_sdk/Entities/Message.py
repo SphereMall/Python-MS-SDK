@@ -10,8 +10,13 @@ class Message(Entity):
     name = None
     surname = None
     email = None
+    telephone = None
     address = None
     postcode = None
     message = None
     date = None
     accepted = None
+    mailSent = None
+    text1 = None
+    text2 = None
+    text3 = None

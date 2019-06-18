@@ -12,4 +12,4 @@ class EventsResource(Resource):
     """
 
     def getURI(self):
-        return 'userevents'
+        return 'events'

@@ -14,7 +14,10 @@ from ms_sdk.Lib.Mappers import EntityAttributeValuesMapper
 from ms_sdk.Lib.Mappers import CatalogItemsMapper
 from ms_sdk.Lib.Mappers import FunctionalNamesMapper
 
+from ms_sdk.Lib.Mappers import TriggersMapper
+
 from ms_sdk.Lib.Mappers import UsersMapper
+from ms_sdk.Lib.Mappers import EventsMapper
 from ms_sdk.Lib.Mappers import UserEventsMapper
 from ms_sdk.Lib.Mappers import WishListItemsMapper
 from ms_sdk.Lib.Mappers import CompaniesMapper

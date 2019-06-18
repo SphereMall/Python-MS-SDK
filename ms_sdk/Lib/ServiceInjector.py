@@ -1,10 +1,12 @@
+from ms_sdk.Resourses.Events import *
+from ms_sdk.Resourses.Marketing import *
 from ms_sdk.Resourses.Shop import *
 from ms_sdk.Resourses.Users import *
 from ms_sdk.Resourses.Grapher import *
 from ms_sdk.Resourses.Products import *
 from ms_sdk.Resourses.Prices.ProductPriceConfigurationsResource import ProductPriceConfigurationsResource
 from ms_sdk.Resourses.Documents.DocumentsResource import DocumentsResource
-from ms_sdk.Resourses.Users.EventsResource import EventsResource
+from ms_sdk.Resourses.Users.UserEventsResource import UserEventsResource
 
 
 class ServiceInjectorMixin:
@@ -152,6 +154,22 @@ class ServiceInjectorMixin:
         """
         return GridResource(self)
 
+    # Events service
+    def events(self):
+        """
+        Client self
+        :return EventsResource:
+        """
+        return EventsResource(self)
+
+    # Triggers service
+    def triggers(self):
+        """
+        Client self
+        :return EventsResource:
+        """
+        return TriggerResource(self)
+
     # Users service
     def users(self):
         """
@@ -163,9 +181,9 @@ class ServiceInjectorMixin:
     def userEvents(self):
         """
         Client self
-        :return UsersResource:
+        :return UserEventsResource:
         """
-        return EventsResource(self)
+        return UserEventsResource(self)
 
     def companies(self):
         """

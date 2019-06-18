@@ -30,10 +30,10 @@ class TestProductsResource:
         isinstance(type(productCollection), Collection)
 
     def test_product_full(self):
-        products = setup_client().products().limit(2).full()
+        products = setup_client().products().limit().full()
         assert 2 == len(products)
 
-        products = setup_client().products().ids(get_prod().id).limit(1).full()
+        products = setup_client().products().ids(get_prod().id).limit().full()
         assert get_prod().id == products.id
         #
         # products = setup_client().products().full(get_prod().id)
@@ -45,7 +45,7 @@ class TestProductsResource:
         # assert type(products) != list
 
     def test_attribute_help_methods(self):
-        product = setup_client().products().limit(1).full()
+        product = setup_client().products().limit().full()
 
         attribute = product.getAttributeByCode('test-html')
         assert 'test-html' == attribute.code

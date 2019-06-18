@@ -19,7 +19,7 @@ class TestUsersResource:
         email = 'test_unique@test.com'
 
         users = setup_client().users()
-        user = users.filter(IsUserEmail(email).asFilter()).limit(1).all()
+        user = users.filter(IsUserEmail(email).asFilter()).limit().all()
 
         assert user.email == email
         assert '0' == user.isSubscriber
@@ -56,7 +56,7 @@ class TestUsersResource:
         email = 'qwpythonTest@test.com'
 
         users = setup_client().users()
-        user = users.filter(IsUserEmail(email).asFilter()).limit(1)
+        user = users.filter(IsUserEmail(email).asFilter()).limit()
 
         assert user.unsubscribe('0') == None
 

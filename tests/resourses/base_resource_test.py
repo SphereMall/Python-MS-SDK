@@ -35,21 +35,21 @@ class TestBaseResourse:
         client = setup_client()
         products = client.products()
 
-        productList = products.limit(3, 0).all()
+        productList = products.limit().all()
         assert 3 == len(productList)
         assert 3 == products.getLimit()
         assert 0 == products.getOffset()
 
-        productList = products.limit(5, 0).all()
+        productList = products.limit().all()
         assert 5 == len(productList)
         assert 5 == products.getLimit()
         assert 0 == products.getOffset()
 
-        productListOffset1 = products.limit(2, 0).all()
+        productListOffset1 = products.limit().all()
         assert 2 == products.getLimit()
         assert 0 == products.getOffset()
 
-        productListOffset2 = products.limit(1, 1).all()
+        productListOffset2 = products.limit().all()
         assert 1 == products.getLimit()
         assert 1 == products.getOffset()
 
@@ -93,16 +93,16 @@ class TestBaseResourse:
         titleLike = product.title[2:5]
 
         productTest = products.filter({
-            'title' : {FilterOperators.LIKE : titleLike},
-            'price' : {FilterOperators.GREATER_THAN_OR_EQUAL : 100}
-        }).limit(1).all()
+            'title': {FilterOperators.LIKE: titleLike},
+            'price': {FilterOperators.GREATER_THAN_OR_EQUAL: 100}
+        }).limit().all()
 
         assert titleLike in productTest.title
 
     def test_filter_specification(self):
         products = setup_client().products()
 
-        productTest = products.filter(IsVisible()).limit(1).all()
+        productTest = products.filter(IsVisible()).limit().all()
 
         assert str(1) == productTest.visible
 
@@ -112,9 +112,9 @@ class TestBaseResourse:
         product = products.get(get_prod().id)
         titleLike = product.title[2:5]
 
-        productTest = products\
-            .filter({'title' : {FilterOperators.LIKE : titleLike}})\
-            .limit(1)\
+        productTest = products \
+            .filter({'title': {FilterOperators.LIKE: titleLike}}) \
+            .limit() \
             .all()
 
         assert titleLike in productTest.title
@@ -125,9 +125,9 @@ class TestBaseResourse:
         product = products.get(get_prod().id)
         titleLike = product.title[2: len(product.title)]
 
-        productTest = products\
-            .filter({'title': {FilterOperators.LIKE_LEFT : titleLike}})\
-            .limit(1)\
+        productTest = products \
+            .filter({'title': {FilterOperators.LIKE_LEFT: titleLike}}) \
+            .limit() \
             .all()
 
         assert titleLike in productTest.title
@@ -140,8 +140,8 @@ class TestBaseResourse:
         titleLike = product.title[0:5]
 
         productTest = products \
-            .filter({'title': {FilterOperators.LIKE_RIGHT : titleLike}}) \
-            .limit(1) \
+            .filter({'title': {FilterOperators.LIKE_RIGHT: titleLike}}) \
+            .limit() \
             .all()
 
         assert titleLike in productTest.title
@@ -153,8 +153,8 @@ class TestBaseResourse:
         titleLike = product.title
 
         productTest = products \
-            .filter({'title': {FilterOperators.EQUAL : titleLike}}) \
-            .limit(1) \
+            .filter({'title': {FilterOperators.EQUAL: titleLike}}) \
+            .limit() \
             .all()
 
         assert titleLike == productTest.title
@@ -165,8 +165,8 @@ class TestBaseResourse:
         titleLike = 'test'
 
         productTest = products \
-            .filter({'title': {FilterOperators.NOT_EQUAL : titleLike}}) \
-            .limit(1) \
+            .filter({'title': {FilterOperators.NOT_EQUAL: titleLike}}) \
+            .limit() \
             .all()
 
         assert titleLike != productTest.title
@@ -175,8 +175,8 @@ class TestBaseResourse:
         products = setup_client().products()
 
         productTest = products \
-            .filter({'price': {FilterOperators.GREATER_THAN : 60000}}) \
-            .limit(1) \
+            .filter({'price': {FilterOperators.GREATER_THAN: 60000}}) \
+            .limit() \
             .all()
 
         assert int(productTest.price) > 60000
@@ -185,8 +185,8 @@ class TestBaseResourse:
         products = setup_client().products()
 
         productTest = products \
-            .filter({'price': {FilterOperators.LESS_THAN : 60000}}) \
-            .limit(1) \
+            .filter({'price': {FilterOperators.LESS_THAN: 60000}}) \
+            .limit() \
             .all()
 
         assert int(productTest.price) < 60000
@@ -195,8 +195,8 @@ class TestBaseResourse:
         products = setup_client().products()
 
         productTest = products \
-            .filter({'price': {FilterOperators.GREATER_THAN_OR_EQUAL : 60000}}) \
-            .limit(1) \
+            .filter({'price': {FilterOperators.GREATER_THAN_OR_EQUAL: 60000}}) \
+            .limit() \
             .all()
 
 
@@ -206,15 +206,15 @@ class TestBaseResourse:
         products = setup_client().products()
 
         productTest = products \
-            .filter({'price': {FilterOperators.LESS_THAN_OR_EQUAL : 60000}}) \
-            .limit(1) \
+            .filter({'price': {FilterOperators.LESS_THAN_OR_EQUAL: 60000}}) \
+            .limit() \
             .all()
 
         assert int(productTest.price) <= 60000
 
     def test_in(self):
         products = setup_client().products()
-        productsList = products.limit(2).all()
+        productsList = products.limit().all()
 
         productsTest = products.byIn('title', [productsList[0].title, productsList[1].title]).all()
 
@@ -225,7 +225,7 @@ class TestBaseResourse:
 
     def test_sort(self):
         products1 = setup_client().products()
-        productList1 = products1.limit(2).sort('title').all()
+        productList1 = products1.limit().sort('title').all()
         assert ['title'] == products1.getSort()
 
     def test_count(self):
@@ -242,7 +242,7 @@ class TestBaseResourse:
 
     def test_collection_as_array(self):
         products1 = setup_client().products()
-        products = products1.limit(2).all()
+        products = products1.limit().all()
         assert type(products) == list
 
     # def test_filter_is_null(self):

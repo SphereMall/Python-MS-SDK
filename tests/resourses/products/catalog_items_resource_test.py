@@ -6,7 +6,7 @@ class TestCatalogItemsResource:
 
     def test_service_get_list(self):
         catalogItems = setup_client().catalogItems()
-        itemsList = catalogItems.limit(5).all()
+        itemsList = catalogItems.limit().all()
 
         for item in itemsList:
             isinstance(type(item), CatalogItem)

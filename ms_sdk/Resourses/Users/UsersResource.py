@@ -50,7 +50,7 @@ class UsersResource(Resource):
         :param guid:
         :return User|None:
         """
-        userList = self.fields(['isSubscriber']).filter({'guid': {FilterOperators.EQUAL: guid}}).limit(1).all()
+        userList = self.fields(['isSubscriber']).filter({'guid': {FilterOperators.EQUAL: guid}}).limit().all()
 
         try:
             return self.update(userList.id, {'isSubscriber': 0})

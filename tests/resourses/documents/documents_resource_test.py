@@ -5,11 +5,11 @@ from tests.settings import *
 class TestDocumentsResource:
 
     def test_document_full(self):
-        documents = setup_client().documents().limit(1).full()
+        documents = setup_client().documents().limit().full()
         isinstance(type(documents), Document)
 
     def test_attribute_help_methods(self):
-        documents = setup_client().documents().limit(1).full()
+        documents = setup_client().documents().limit().full()
         attribute = documents.getAttributeByCode('title')
         assert 'title' == attribute.code
 
