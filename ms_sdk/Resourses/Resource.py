@@ -246,7 +246,6 @@ class Resource:
         """
         if not maker:
             maker = self.maker
-
         maker.setAsCollection(self._meta)
 
         if isinstance(response, Response):

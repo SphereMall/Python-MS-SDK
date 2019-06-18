@@ -16,8 +16,8 @@ class Client(ServiceInjectorMixin):
 
         if not (set(['gatewayUrl', 'clientId', 'secretKey']).issubset(
                 set(options)) & all(options.values())):
+            print('API connection data not set')
             raise ConfigurationException()
-            # print('API connection data not set')
 
     # Getters methods
     def getGatewayUrl(self):

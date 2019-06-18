@@ -4,6 +4,8 @@ from ms_sdk.Resourses.Grapher import *
 from ms_sdk.Resourses.Products import *
 from ms_sdk.Resourses.Prices.ProductPriceConfigurationsResource import ProductPriceConfigurationsResource
 from ms_sdk.Resourses.Documents.DocumentsResource import DocumentsResource
+from ms_sdk.Resourses.Users.EventsResource import EventsResource
+
 
 class ServiceInjectorMixin:
 
@@ -157,6 +159,13 @@ class ServiceInjectorMixin:
         :return UsersResource:
         """
         return UsersResource(self)
+
+    def userEvents(self):
+        """
+        Client self
+        :return UsersResource:
+        """
+        return EventsResource(self)
 
     def companies(self):
         """

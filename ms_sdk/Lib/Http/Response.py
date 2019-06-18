@@ -27,7 +27,7 @@ class Response:
             else:
                 self.success = contents['success']
             self.errors = contents.get('error') or None
-            self.version = contents['ver']
+            self.version = contents['version']
             self.included = contents.get('included')
 
             try:
