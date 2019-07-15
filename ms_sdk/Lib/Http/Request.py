@@ -35,10 +35,11 @@ class Request:
         # Base url should end without slash
         url = url.replace('?', '')
         url = url.rstrip('/')
+        # url = url[:-1]
 
         # Append additional data to url
-        if uriAppend:
-            url += '/' + str(uriAppend)
+        # if uriAppend:
+            # url += '/' + str(uriAppend)
 
         # Add query params
         if queryParams and method.lower() != 'post':
@@ -63,10 +64,10 @@ class Request:
         headers = {'user-agent': 'PythonAPI'}
 
         if method.lower() == 'get':
-            return Response(requests.get(url, options, headers=headers))
+            return Response(requests.get(url, options, headers=headers, verify=False))
         elif method.lower() == 'delete':
-            return Response(requests.delete(url, data=options, headers=headers))
+            return Response(requests.delete(url, data=options, headers=headers, verify=False))
         elif method.lower() == 'put':
-            return Response(requests.put(url, options, headers=headers))
+            return Response(requests.put(url, options, headers=headers, verify=False))
         elif method.lower() == 'post':
-            return Response(requests.post(url, data=queryParams, headers=headers))
+            return Response(requests.post(url, data=queryParams, headers=headers, verify=False))

@@ -12,4 +12,4 @@ class MessagesResource(Resource):
     """
 
     def getURI(self):
-        return 'messages'
+        return 'usermessages'

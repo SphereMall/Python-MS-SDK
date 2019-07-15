@@ -13,7 +13,7 @@ class Response:
         """
         self.statusCode = response.status_code
         self.headers = response.headers
-
+        print(response)
         contents = response.json()
 
         try:
