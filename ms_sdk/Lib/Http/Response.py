@@ -13,8 +13,13 @@ class Response:
         """
         self.statusCode = response.status_code
         self.headers = response.headers
-        print(response)
         contents = response.json()
+
+        if contents.get('status') and contents.get('status') == 'OK':
+            print(response)
+        elif contents.get('errors'):
+            for error in contents.get('errors'):
+                print(error['error_code'] + ' ' + error['message'])
 
         try:
             self.data = contents['data']

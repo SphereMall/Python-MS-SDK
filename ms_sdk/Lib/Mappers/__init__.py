@@ -32,6 +32,7 @@ from ms_sdk.Lib.Mappers import FacetAttributesMapper
 
 from ms_sdk.Lib.Mappers import CurrenciesMapper
 from ms_sdk.Lib.Mappers import CurrenciesRateMapper
+from ms_sdk.Lib.Mappers import ConsumerFactorsHistoryMapper
 from ms_sdk.Lib.Mappers import ProductPriceConfigurationsMapper
 from ms_sdk.Lib.Mappers import OrderItemsMapper
 from ms_sdk.Lib.Mappers import InvoicesMapper

@@ -59,4 +59,4 @@ class Request:
         if _async:
             return {'method': method, 'url': url, 'headers': headers}
 
-        Response(requests.request(method, url, headers=headers, data=body))
+        return Response(requests.request(method, url, headers=headers, data=body))
