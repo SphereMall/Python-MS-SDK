@@ -1,4 +1,5 @@
 from ms_sdk.Resourses.Events import *
+from ms_sdk.Resourses.Grapher.ConsumerFactorsHistoryResource import ConsumerFactorsHistoryResource
 from ms_sdk.Resourses.Marketing import *
 from ms_sdk.Resourses.Shop import *
 from ms_sdk.Resourses.Users import *
@@ -277,3 +278,10 @@ class ServiceInjectorMixin:
         :return VatsResource:
         """
         return VatsResource(self)
+
+    def consumerFactorsHistoty(self):
+        """
+        Client self
+        :return ConsumerFactorsHistory:
+        """
+        return ConsumerFactorsHistoryResource(self)

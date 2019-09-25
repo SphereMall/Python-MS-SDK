@@ -1,2 +1,3 @@
 from ms_sdk.Resourses.Grapher.CorrelationsResource import CorrelationsResource
 from ms_sdk.Resourses.Grapher.GridResource import GridResource
+from ms_sdk.Resourses.Grapher.ConsumerFactorsHistoryResource import ConsumerFactorsHistoryResource
