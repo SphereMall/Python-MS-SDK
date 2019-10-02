@@ -15,14 +15,14 @@ class ConsumerFactorsHistoryResource(Resource):
     """
 
     def getURI(self):
-        return 'consumerfactors'
+        return 'consumerfactorshistory'
 
-    def get(self, id: int):
-        """
-        :param int id:
-        :raises MethodNotFoundException:
-        """
-        raise MethodNotFoundException('Method get() can not be use with consumer factors')
+    # def get(self, id: int):
+    #     """
+    #     :param int id:
+    #     :raises MethodNotFoundException:
+    #     """
+    #     raise MethodNotFoundException('Method get() can not be use with consumer factors')
 
     def update(self, id: int, data):
         """

@@ -68,7 +68,7 @@ class Resource:
         return response.getSuccess()
 
     def create(self, data):
-        response = self.handler.handle('POST', body=True, queryParams=data)
+        response = self.handler.handle('POST', body=data)
 
         if not response.getSuccess():
             print(response.getData())

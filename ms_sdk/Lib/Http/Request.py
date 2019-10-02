@@ -17,7 +17,7 @@ class Request:
         self.client = client
         self.resource = resource
 
-    def handle(self, method: str, body: bool = False, uriAppend: str = '', queryParams: dict = {}):
+    def handle(self, method: str, body: dict, uriAppend: str = '', queryParams: dict = {}):
         """
         :param method:
         :param body:
@@ -59,4 +59,4 @@ class Request:
         if _async:
             return {'method': method, 'url': url, 'headers': headers}
 
-        return Response(requests.request(method, url, headers=headers, data=body))
+        return Response(requests.request(method, url, headers=headers, data=body, verify=False))
