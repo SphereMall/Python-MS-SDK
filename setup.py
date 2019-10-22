@@ -8,7 +8,7 @@ setup(
     author='Kravets Roman',
     author_email='r.kravets@spheremall.com',
     install_requires=[
-        'requests==2.18.4'
+        'requests==2.20.0'
     ],
     url='https://github.com/SphereMall/Python-MS-SDK/wiki',
 )
